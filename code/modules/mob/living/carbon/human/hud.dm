@@ -455,7 +455,7 @@
 	using.name = null
 	using.icon = ui_style
 	using.icon_state = "dither50"
-	using.screen_loc = "11,1 to 15,15"
+	using.screen_loc = "1WEST,SOUTH to EAST,NORTH"
 	using.layer = 17
 	using.mouse_opacity = 0
 	src.vimpaired += using
@@ -607,22 +607,22 @@
 	mymob.blind.icon = ui_style
 	mymob.blind.icon_state = "blackanimate"
 	mymob.blind.name = " "
-	mymob.blind.screen_loc = "1,1 to 15,15"
-	mymob.blind.layer = 0
+	mymob.blind.screen_loc = "WEST,SOUTH to EAST,NORTH"
+	mymob.blind.layer = 21
 	mymob.blind.mouse_opacity = 0
 
 	mymob.flash = new /obj/screen( null )
 	mymob.flash.icon = ui_style
 	mymob.flash.icon_state = "blank"
 	mymob.flash.name = "flash"
-	mymob.flash.screen_loc = "1,1 to 15,15"
-	mymob.flash.layer = 17
+	mymob.flash.screen_loc = "WEST,SOUTH to EAST,NORTH"
+	mymob.flash.layer = 21
 
 	mymob.pain = new /obj/screen( null )
 	mymob.pain.icon_state = "blank"
 	mymob.pain.name = "pain"
-	mymob.pain.screen_loc = "1,1 to 15,15"
-	mymob.pain.layer = 17
+	mymob.pain.screen_loc = "WEST,SOUTH to EAST,NORTH"
+	mymob.pain.layer = 21
 
 /*
 	mymob.hands = new /obj/screen( null )
@@ -740,7 +740,7 @@
 	mymob.client.screen = null
 
 	//, mymob.i_select, mymob.m_select
-	mymob.client.screen += list( mymob.pain, mymob.throw_icon, mymob.zone_sel, mymob.oxygen, mymob.pressure, mymob.toxin, mymob.bodytemp, mymob.internals, mymob.fire, mymob.healths, mymob.nutrition_icon, mymob.pullin, mymob.blind, mymob.flash) //, mymob.hands, mymob.rest, mymob.sleep, mymob.gun_setting_icon) //, mymob.mach )
+	mymob.client.screen += list( mymob.pain, mymob.throw_icon, mymob.zone_sel, mymob.oxygen, mymob.pressure, mymob.toxin, mymob.bodytemp, mymob.internals, mymob.fire, mymob.healths, mymob.nutrition_icon, mymob.pullin, mymob.flash) //, mymob.hands, mymob.rest, mymob.sleep, mymob.gun_setting_icon) //, mymob.mach )
 	mymob.client.screen += src.adding + src.other + src.hotkeybuttons
 
 	//if(istype(mymob,/mob/living/carbon/monkey)) mymob.client.screen += src.mon_blo

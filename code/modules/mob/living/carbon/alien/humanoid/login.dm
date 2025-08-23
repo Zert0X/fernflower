@@ -83,8 +83,8 @@
 	src.rest.screen_loc = "15,2"
 	src.pullin.screen_loc = "15,1"
 	src.hands.screen_loc = "1,3"
-	src.blind.screen_loc = "1,1 to 15,15"
-	src.flash.screen_loc = "1,1 to 15,15"
+	src.blind.screen_loc = "WEST,SOUTH to EAST,NORTH"
+	src.flash.screen_loc = "WEST,SOUTH to EAST,NORTH"
 
 	src.blind.layer = 0
 	src.flash.layer = 17

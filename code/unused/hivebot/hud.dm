@@ -215,7 +215,7 @@
 	mymob.blind.icon = 'screen1_robot.dmi'
 	mymob.blind.icon_state = "blackanimate"
 	mymob.blind.name = " "
-	mymob.blind.screen_loc = "1,1 to 15,15"
+	mymob.blind.screen_loc = "WEST,SOUTH to EAST,NORTH"
 	mymob.blind.layer = 0
 	mymob.blind.mouse_opacity = 0
 
@@ -223,7 +223,7 @@
 	mymob.flash.icon = 'screen1_robot.dmi'
 	mymob.flash.icon_state = "blank"
 	mymob.flash.name = "flash"
-	mymob.flash.screen_loc = "1,1 to 15,15"
+	mymob.flash.screen_loc = "WEST,SOUTH to EAST,NORTH"
 	mymob.flash.layer = 17
 
 	mymob.sleep = new /obj/screen( null )

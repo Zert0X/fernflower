@@ -96,7 +96,7 @@
 				else
 
 					//stage = 6
-					src.blind.screen_loc = "1,1 to 15,15"
+					src.blind.screen_loc = "WEST,SOUTH to EAST,NORTH"
 					if (src.blind.layer!=18)
 						src.blind.layer = 18
 					src.sight = src.sight&~SEE_TURFS

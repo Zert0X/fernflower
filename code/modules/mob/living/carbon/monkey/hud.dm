@@ -433,7 +433,7 @@
 	using.name = null
 	using.icon = ui_style
 	using.icon_state = "dither50"
-	using.screen_loc = "11,1 to 15,15"
+	using.screen_loc = "1WEST,SOUTH to EAST,NORTH"
 	using.layer = 17
 	using.mouse_opacity = 0
 	src.vimpaired += using
@@ -508,7 +508,7 @@
 	mymob.blind.icon = ui_style
 	mymob.blind.icon_state = "blackanimate"
 	mymob.blind.name = " "
-	mymob.blind.screen_loc = "1,1 to 15,15"
+	mymob.blind.screen_loc = "WEST,SOUTH to EAST,NORTH"
 	mymob.blind.layer = 0
 	mymob.blind.mouse_opacity = 0
 
@@ -516,7 +516,7 @@
 	mymob.flash.icon = ui_style
 	mymob.flash.icon_state = "blank"
 	mymob.flash.name = "flash"
-	mymob.flash.screen_loc = "1,1 to 15,15"
+	mymob.flash.screen_loc = "WEST,SOUTH to EAST,NORTH"
 	mymob.flash.layer = 17
 
 /*

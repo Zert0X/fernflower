@@ -952,8 +952,8 @@
 		if(istype(w_uniform, /obj/item/clothing/under))
 			var/t1 = w_uniform.color
 			if (!t1)
-				t1 = icon_state
-			clothing_overlays += image("icon" = 'uniform.dmi', "icon_state" = text("[][]",t1, (!(lying) ? "_s" : "_l")), "layer" = UNIFORM_LAYER)
+				t1 = w_uniform.icon_state
+			clothing_overlays += image("icon" = 'uniform.dmi', "icon_state" = "[t1][(!(lying) ? "_s" : "_l")]", "layer" = UNIFORM_LAYER)
 			if (w_uniform.blood_DNA)
 				var/icon/stain_icon = icon('blood.dmi', "uniformblood[!lying ? "" : "2"]")
 				clothing_overlays += image("icon" = stain_icon, "layer" = B_UNIFORM_LAYER)
