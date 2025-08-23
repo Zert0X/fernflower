@@ -49,8 +49,8 @@
 						src.healths.icon_state = "health4"
 					else
 						src.healths.icon_state = "health5"
-					else
-						src.healths.icon_state = "health6"
+			else
+				src.healths.icon_state = "health6"
 
 	handle_environment()
 

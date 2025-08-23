@@ -81,7 +81,7 @@
 
 		wizard_mob.real_name = newname
 		wizard_mob.name = newname
-			wizard_mob << sound('wizardis.ogg',volume=50)
+		wizard_mob << sound('wizardis.ogg',volume=50)
 	return
 
 

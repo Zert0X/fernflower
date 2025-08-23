@@ -219,7 +219,7 @@ SHARDS
 /obj/item/weapon/shard/New()
 
 	//****RM
-	//world<<"New shard at [x],[y],[z]"
+	//client<<"New shard at [x],[y],[z]"
 
 	src.icon_state = pick("large", "medium", "small")
 	switch(src.icon_state)

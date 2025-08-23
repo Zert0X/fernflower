@@ -201,10 +201,12 @@ swapmap
 		        vars    // all other changed vars
 	 */
 	Write(savefile/S)
-		var
-			x;y;z;n
-			list/areas
-			area/defarea=locate(world.area)
+		var/x
+		var/y
+		var/z
+		var/n
+		var/list/areas
+		var/area/defarea=locate(world.area)
 		if(!defarea) defarea=new world.area
 		areas=list()
 		for(var/turf/T in block(locate(x1,y1,z1),locate(x2,y2,z2)))
@@ -240,10 +242,12 @@ swapmap
 		del(areas)
 
 	Read(savefile/S,_id,turf/locorner)
-		var
-			x;y;z;n
-			list/areas
-			area/defarea=locate(world.area)
+		var/x
+		var/y
+		var/z
+		var/n
+		var/list/areas
+		var/area/defarea=locate(world.area)
 		id=_id
 		if(locorner)
 			ischunk=1

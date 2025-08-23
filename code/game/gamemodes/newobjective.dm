@@ -134,12 +134,12 @@
 			chosenobjectives += objective
 			total_weight += objective.points
 			theftobjectives -= objective
-		else switch(selectobj)
-			if(1 to steal_range)
+		else 
+			if(selectobj >= 1  && selectobj <= steal_range)
 				if(!theftobjectives.len)
 					continue
 				var/datum/objective/objective = pickweight(theftobjectives)
-				for(1 to 10)
+				for(var/i=1;i<10;i++)
 					if(objective.points + total_weight <= 100 || !theftobjectives.len)
 						break
 					theftobjectives -= objective
@@ -149,11 +149,11 @@
 				chosenobjectives += objective
 				total_weight += objective.points
 				theftobjectives -= objective
-			if(steal_range + 1 to frame_range)	//Framing Objectives (3% chance)
+			if(selectobj >= steal_range + 1 && selectobj <= frame_range)	//Framing Objectives (3% chance)
 				if(!frameobjectives.len)
 					continue
 				var/datum/objective/objective = pickweight(frameobjectives)
-				for(1 to 10)
+				for(var/i=1;i<10;i++)
 					if(objective.points + total_weight <= 100 || !frameobjectives.len)
 						break
 					frameobjectives -= objective
@@ -173,7 +173,7 @@
 					total_weight += objective.points
 				frameobjectives -= objective
 				conflict = 0
-			if(frame_range + 1 to kill_range)
+			if(selectobj >= frame_range + 1 && selectobj <= kill_range)
 				if(!killobjectives.len)
 					continue
 				var/datum/objective/assassinate/objective = pickweight(killobjectives)
@@ -198,7 +198,7 @@
 					total_weight += objective.points
 				killobjectives -= objective
 				conflict = 0
-			if(kill_range + 1 to 100)	//Protection Objectives (5% chance)
+			if(selectobj >= kill_range + 1 && selectobj <= 100)	//Protection Objectives (5% chance)
 				if(!protectobjectives.len)
 					continue
 				var/datum/objective/protection/objective = pickweight(protectobjectives)

@@ -300,11 +300,9 @@ proc/is_carrying(var/M as mob, var/O as obj)
 proc/CircleFloodFill(turf/start, var/radius = 3)
 	if(!istype(start))
 		return list()
-	var
-		list
-			open = list(start)
-			closed = list()
-			possibles = circlerange(start,radius)
+	var/list/open = list(start)
+	var/list/closed = list()
+	var/list/possibles = circlerange(start,radius)
 
 	while(open.len)
 		for(var/turf/T in open)
@@ -327,11 +325,9 @@ proc/CircleFloodFill(turf/start, var/radius = 3)
 proc/ExplosionFloodFill(turf/start, var/radius = 3)
 	if(!istype(start))
 		return list()
-	var
-		list
-			open = list(start)
-			closed = list()
-			possibles = range(start,radius)
+	var/list/open = list(start)
+	var/list/closed = list()
+	var/list/possibles = range(start,radius)
 
 	while(open.len)
 		for(var/turf/T in open)
@@ -389,11 +385,10 @@ proc/ExplosionFloodFill(turf/start, var/radius = 3)
 proc/ExplosionCircleFloodFill(turf/start, var/radius = 3)
 	if(!istype(start))
 		return list()
-	var
-		list
-			open = list(start)
-			closed = list()
-			possibles = circlerange(start,radius)
+	
+	var/list/open = list(start)
+	var/list/closed = list()
+	var/list/possibles = circlerange(start,radius)
 
 	while(open.len)
 		for(var/turf/T in open)

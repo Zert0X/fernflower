@@ -122,7 +122,7 @@
 		user << browse(null, "window=stack")
 	user.machine = src //for correct work of onclose
 	var/t1 = text("<HTML><HEAD><title>Constructions from []</title></HEAD><body><TT>Amount Left: []<br>", src, src.amount)
-	for(var/i=1;i<=recipes.len,i++)
+	for(var/i=1;i<=recipes.len;i++)
 		var/datum/stack_recipe/R = recipes[i]
 		if (isnull(R))
 			t1 += "<hr>"

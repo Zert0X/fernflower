@@ -64,13 +64,13 @@
 
 	process_hud(var/mob/M)
 /*
-		world<< "view(M)"
+		client<< "view(M)"
 		for(var/mob/mob in view(M))
 			world << "[mob]"
-		world<< "view(M.client)"
+		client<< "view(M.client)"
 		for(var/mob/mob in view(M.client))
 			world << "[mob]"
-		world<< "view(M.loc)"
+		client<< "view(M.loc)"
 		for(var/mob/mob in view(M.loc))
 			world << "[mob]"
 */
