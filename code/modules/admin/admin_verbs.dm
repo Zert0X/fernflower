@@ -831,16 +831,26 @@
 	set category = "Admin"
 
 	if(src.holder)
-		if(alert("Confirm self-deadmin for the round? You can't re-admin yourself without someont promoting you.",,"Yes","No") == "Yes")
+		if(alert("Confirm self-deadmin for the round? You can re-admin yourself at any time.",,"Yes","No") == "Yes")
 			del(holder)
 			log_admin("[src] deadmined themself.")
 			message_admins("[src] deadmined themself.", 1)
 			src.clear_admin_verbs()
 			src.update_admins(null)
-			admins.Remove(src.ckey)
 			usr << "You are now a normal player."
+			src.verbs += /client/proc/readmin_self
 //	feedback_add_details("admin_verb","DAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/client/proc/readmin_self()
+	set name = "Re-admin self"
+	set category = "Admin"
+
+	log_admin("[src] readmined themself.")
+	message_admins("[src] readmined themself.", 1)
+	src.clear_admin_verbs()
+	src.update_admins(admins[src.ckey])
+	usr << "You now have the keys to control the planet, or atleast a small space station."
+	src.verbs -= /client/proc/readmin_self
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
 	set name = "Toggle most admin verb visibility"
