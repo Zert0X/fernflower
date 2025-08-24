@@ -111,7 +111,7 @@
 
 	dat += "</table></body></html>"
 
-	usr << browse(dat, "window=players;size=905x600")
+	show_browser(usr, dat, "window=players;size=905x600")
 
 
 /obj/admins/proc/mod_panel()//The new one
@@ -220,7 +220,7 @@
 
 	dat += "</table></body></html>"
 
-	usr << browse(dat, "window=players;size=600x600")
+	show_browser(usr, dat, "window=players;size=600x600")
 
 //The old one
 /obj/admins/proc/player_panel_old()
@@ -278,7 +278,7 @@
 
 	dat += "</table></body></html>"
 
-	usr << browse(dat, "window=players;size=640x480")
+	show_browser(usr, dat, "window=players;size=640x480")
 
 
 
@@ -419,6 +419,6 @@
 			dat += "</table>"
 
 		dat += "</body></html>"
-		usr << browse(dat, "window=roundstatus;size=400x500")
+		show_browser(usr, dat, "window=roundstatus;size=400x500")
 	else
 		alert("The game hasn't started yet!")

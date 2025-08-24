@@ -196,7 +196,7 @@ obj/structure/windoor_assembly/Del()
 
 			//Crowbar to complete the assembly, Step 7 complete.
 			else if(istype(W, /obj/item/weapon/crowbar))
-				usr << browse(null, "window=windoor_access")
+				show_browser(usr, null, "window=windoor_access")
 				playsound(src.loc, 'Crowbar.ogg', 100, 1)
 				user.visible_message("[user] pries the windoor into the frame.", "You start prying the windoor into the frame.")
 

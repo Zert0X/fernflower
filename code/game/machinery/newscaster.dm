@@ -363,7 +363,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //list that will contain r
 				dat+="I'm sorry to break your immersion. This shit's bugged. Report this bug to Agouri, polyxenitopalidou@gmail.com"
 
 
-		human_user << browse(dat, "window=newscaster_main;size=400x600")
+		show_browser(human_user, dat, "window=newscaster_main;size=400x600")
 		onclose(human_user, "newscaster_main")
 
 	/*if(src.isbroken) //debugging shit
@@ -739,7 +739,7 @@ obj/item/weapon/newspaper/attack_self(mob/user as mob)
 				dat+="I'm sorry to break your immersion. This shit's bugged. Report this bug to Agouri, polyxenitopalidou@gmail.com"
 
 		dat+="<BR><HR><div align='center'>[src.curr_page+1]</div>"
-		human_user << browse(dat, "window=newspaper_main;size=300x400")
+		show_browser(human_user, dat, "window=newspaper_main;size=300x400")
 		onclose(human_user, "newspaper_main")
 	else
 		user << "The paper is full of intelligible symbols!"

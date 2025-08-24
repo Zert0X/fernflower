@@ -559,7 +559,7 @@ var/global/BSACooldown = 0
 
 		body = "<body>[jobs]</body>"
 		dat = "<tt>[header][body]</tt>"
-		usr << browse(dat, "window=jobban2;size=800x450")
+		show_browser(usr, dat, "window=jobban2;size=800x450")
 		return
 
 	//JOBBAN'S INNARDS
@@ -800,7 +800,7 @@ var/global/BSACooldown = 0
 
 		body = "<br>[jobs]<br><br>"
 		dat = "<tt>[header][body]</tt>"
-		usr << browse(dat, "window=jobban2;size=600x250")
+		show_browser(usr, dat, "window=jobban2;size=600x250")
 		return
 	if(href_list["newjobban2"])
 		if ((src.rank in list("Moderator", "Administrator", "Badmin", "Tyrant"  )))
@@ -918,7 +918,7 @@ var/global/BSACooldown = 0
 			dat += {"<A href='?src=\ref[src];c_mode2=secret'>Secret</A><br>"}
 			dat += {"<A href='?src=\ref[src];c_mode2=random'>Random</A><br>"}
 			dat += {"Now: [master_mode]"}
-			usr << browse(dat, "window=c_mode")
+			show_browser(usr, dat, "window=c_mode")
 
 	if (href_list["f_secret"])
 		if ((src.rank in list( "Temporary Admin", "Admin Candidate", "Trial Admin", "Badmin", "Game Admin", "Game Master"  )))
@@ -931,7 +931,7 @@ var/global/BSACooldown = 0
 				dat += {"<A href='?src=\ref[src];f_secret2=[mode]'>[config.mode_names[mode]]</A><br>"}
 			dat += {"<A href='?src=\ref[src];f_secret2=secret'>Random (default)</A><br>"}
 			dat += {"Now: [secret_force_mode]"}
-			usr << browse(dat, "window=f_secret")
+			show_browser(usr, dat, "window=f_secret")
 
 	if (href_list["c_mode2"])
 		if ((src.rank in list( "Temporary Admin", "Admin Candidate", "Trial Admin", "Badmin", "Game Admin", "Game Master"  )))
@@ -1359,7 +1359,7 @@ var/global/BSACooldown = 0
 				foo += text("<A HREF='?src=\ref[];forcespeech=\ref[]'>Say</A> \]", src, M)
 			dat += text("N: [] R: [] (K: []) (IP: []) []<BR>", M.name, M.real_name, (M.client ? M.client : "No client"), M.lastKnownIP, foo)
 
-		usr << browse(dat, "window=players;size=900x480")
+		show_browser(usr, dat, "window=players;size=900x480")
 
 *****************AFTER******************/
 
@@ -1701,7 +1701,7 @@ var/global/BSACooldown = 0
 			else
 				alert("Not a high enough level admin, sorry.")
 				return
-			usr << browse(dat, "window=prom_demot;size=480x300")
+			show_browser(usr, dat, "window=prom_demot;size=480x300")
 
 	if (href_list["chgadlvl"])
 	//change admin level
@@ -2317,17 +2317,17 @@ var/global/BSACooldown = 0
 					var/dat = "<B>Bombing List<HR>"
 					for(var/l in bombers)
 						dat += text("[l]<BR>")
-					usr << browse(dat, "window=bombers")
+					show_browser(usr, dat, "window=bombers")
 				if("list_signalers")
 					var/dat = "<B>Showing last [length(lastsignalers)] signalers.</B><HR>"
 					for(var/sig in lastsignalers)
 						dat += "[sig]<BR>"
-					usr << browse(dat, "window=lastsignalers;size=800x500")
+					show_browser(usr, dat, "window=lastsignalers;size=800x500")
 				if("list_lawchanges")
 					var/dat = "<B>Showing last [length(lawchanges)] law changes.</B><HR>"
 					for(var/sig in lawchanges)
 						dat += "[sig]<BR>"
-					usr << browse(dat, "window=lawchanges;size=800x500")
+					show_browser(usr, dat, "window=lawchanges;size=800x500")
 				if("list_job_debug")
 					var/dat = "<B>Job Debug info.</B><HR>"
 					if(job_master)
@@ -2337,7 +2337,7 @@ var/global/BSACooldown = 0
 						for(var/datum/job/job in job_master.occupations)
 							if(!job)	continue
 							dat += "job: [job.title], current_positions: [job.current_positions], total_positions: [job.total_positions] <BR>"
-						usr << browse(dat, "window=jobdebug;size=600x500")
+						show_browser(usr, dat, "window=jobdebug;size=600x500")
 				if("check_antagonist")
 					check_antagonists()
 				if("showailaws")
@@ -2360,7 +2360,7 @@ var/global/BSACooldown = 0
 						if(H.ckey)
 							dat += text("<tr><td>[]</td><td>[]</td></tr>", H.name, H.get_assignment())
 					dat += "</table>"
-					usr << browse(dat, "window=manifest;size=440x410")
+					show_browser(usr, dat, "window=manifest;size=440x410")
 				if("DNA")
 					var/dat = "<B>Showing DNA from blood.</B><HR>"
 					dat += "<table cellspacing=5><tr><th>Name</th><th>DNA</th><th>Blood Type</th></tr>"
@@ -2368,7 +2368,7 @@ var/global/BSACooldown = 0
 						if(H.dna && H.ckey)
 							dat += "<tr><td>[H]</td><td>[H.dna.unique_enzymes]</td><td>[H.dna.b_type]</td></tr>"
 					dat += "</table>"
-					usr << browse(dat, "window=DNA;size=440x410")
+					show_browser(usr, dat, "window=DNA;size=440x410")
 				if("fingerprints")
 					var/dat = "<B>Showing Fingerprints.</B><HR>"
 					dat += "<table cellspacing=5><tr><th>Name</th><th>Fingerprints</th></tr>"
@@ -2381,7 +2381,7 @@ var/global/BSACooldown = 0
 							else if(!H.dna)
 								dat += "<tr><td>[H]</td><td>H.dna = null</td></tr>"
 					dat += "</table>"
-					usr << browse(dat, "window=fingerprints;size=440x410")
+					show_browser(usr, dat, "window=fingerprints;size=440x410")
 			if (usr)
 				log_admin("[key_name(usr)] used secret [href_list["secretsadmin"]]")
 				if (ok)
@@ -2396,7 +2396,7 @@ var/global/BSACooldown = 0
 						dat += "<li>[l]</li>"
 					if(!admin_log.len)
 						dat += "No-one has done anything this round!"
-					usr << browse(dat, "window=admin_log")
+					show_browser(usr, dat, "window=admin_log")
 				if("maint_access_brig")
 					for(var/obj/machinery/door/airlock/maintenance/M in world)
 						if (ACCESS_MAINT_TUNNELS in M.req_access)
@@ -2603,7 +2603,7 @@ var/global/BSACooldown = 0
 	body += "<br>"
 	body += "</body></html>"
 
-	usr << browse(body, "window=adminplayeropts;size=550x515")
+	show_browser(usr, body, "window=adminplayeropts;size=550x515")
 	//feedback_add_details("admin_verb","SPP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -2657,7 +2657,7 @@ var/global/BSACooldown = 0
 	dat += "<A href='?src=\ref[src];add_player_info=[key]'>Add Comment</A><br>"
 
 	dat += "</body></html>"
-	usr << browse(dat, "window=adminplayerinfo;size=480x480")
+	show_browser(usr, dat, "window=adminplayerinfo;size=480x480")
 
 /obj/admins/proc/show_skills(var/mob/living/carbon/human/M as mob in world)
 	set category = "Admin"
@@ -2697,7 +2697,7 @@ var/global/BSACooldown = 0
 				r = copytext( r, 1, findtext(r,"##") )//removes the description
 			dat += text("<tr><td>[t] (<A href='?src=\ref[src];removejobban=[r]'>unban</A>)</td></tr>")
 		dat += "</table>"
-		usr << browse(dat, "window=ban;size=400x400")
+		show_browser(usr, dat, "window=ban;size=400x400")
 
 /obj/admins/proc/PlayerNotes()
 	var/dat = "<B>Player notes</B><HR><table>"
@@ -2712,7 +2712,7 @@ var/global/BSACooldown = 0
 		for(var/t in note_keys)
 			dat += text("<tr><td><A href='?src=\ref[src];view_player_info=[t]'>[t]</A></td></tr>")
 	dat += "</table>"
-	usr << browse(dat, "window=player_notes;size=400x400")
+	show_browser(usr, dat, "window=player_notes;size=400x400")
 
 /obj/admins/proc/Game()
 
@@ -2757,7 +2757,7 @@ var/global/BSACooldown = 0
 		dat += "<A href='?src=\ref[src];vsc=plasma'>Edit Plasma Settings</A><br>"
 		dat += "<A href='?src=\ref[src];vsc=default'>Choose a default ZAS setting</A><br>"
 //			if(lvl == 6 )
-	usr << browse(dat, "window=admin2;size=210x280")
+	show_browser(usr, dat, "window=admin2;size=210x280")
 	return
 /*
 /obj/admins/proc/goons()
@@ -2765,14 +2765,14 @@ var/global/BSACooldown = 0
 	for(var/t in goon_keylist)
 		dat += text("<tr><td><A href='?src=\ref[src];remove=[ckey(t)]'><B>[t]</B></A></td><td>[goon_keylist[ckey(t)]]</td></tr>")
 	dat += "</table>"
-	usr << browse(dat, "window=ban;size=300x400")
+	show_browser(usr, dat, "window=ban;size=300x400")
 
 /obj/admins/proc/beta_testers()
 	var/dat = "<HR><B>Beta testers</B><HR><table cellspacing=5><tr><th>Key</th></tr>"
 	for(var/t in beta_tester_keylist)
 		dat += text("<tr><td>[t]</td></tr>")
 	dat += "</table>"
-	usr << browse(dat, "window=ban;size=300x400")
+	show_browser(usr, dat, "window=ban;size=300x400")
 */
 /obj/admins/proc/Secrets()
 	if (!usr.client.holder)
@@ -2876,7 +2876,7 @@ var/global/BSACooldown = 0
 <A href='?src=\ref[src];secretscoder=spawn_objects'>Admin Log</A><BR>
 <BR>
 "}
-	usr << browse(dat, "window=secrets")
+	show_browser(usr, dat, "window=secrets")
 	return
 
 /obj/admins/proc/Voting()
@@ -2909,7 +2909,7 @@ var/global/BSACooldown = 0
 <A href='?src=\ref[src];voteres=1'>Toggle Voting</A><br>
 "}
 
-	usr << browse(dat, "window=admin2;size=210x160")
+	show_browser(usr, dat, "window=admin2;size=210x160")
 	return
 
 
@@ -3006,7 +3006,7 @@ var/global/BSACooldown = 0
 	for(var/mob/M in world)
 		// clear vote window from all clients
 		if(M.client)
-			M << browse(null, "window=vote")
+			show_browser(M, null, "window=vote")
 			M.client.showvote = 0
 	//feedback_add_details("admin_verb","AV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

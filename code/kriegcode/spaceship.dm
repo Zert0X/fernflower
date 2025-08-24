@@ -290,7 +290,7 @@ var/list/areamem = new/list() // where hell else define this shit
 	src.add_fingerprint(usr)
 	var/dat
 	dat = text("<center>Buckle in the chair and concentrate on the moving<br> </center>")
-	user << browse("[dat]", "window=miningshuttle;size=200x100")
+	show_browser(user, "[dat]", "window=miningshuttle;size=200x100")
 
 
 

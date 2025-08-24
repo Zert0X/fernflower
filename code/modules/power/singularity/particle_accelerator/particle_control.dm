@@ -71,11 +71,11 @@
 		//Ignore input if we are broken, !silicon guy cant touch us, or nonai controlling from super far away
 		if(stat & (BROKEN|NOPOWER) || (get_dist(src, usr) > 1 && !istype(usr, /mob/living/silicon)) || (get_dist(src, usr) > 8 && !istype(usr, /mob/living/silicon/ai)))
 			usr.machine = null
-			usr << browse(null, "window=pacontrol")
+			show_browser(usr, null, "window=pacontrol")
 			return
 
 		if( href_list["close"] )
-			usr << browse(null, "window=pacontrol")
+			show_browser(usr, null, "window=pacontrol")
 			usr.machine = null
 			return
 		if(href_list["togglep"])
@@ -208,7 +208,7 @@
 			if((get_dist(src, user) > 1) || (stat & (BROKEN|NOPOWER)))
 				if(!istype(user, /mob/living/silicon))
 					user.machine = null
-					user << browse(null, "window=pacontrol")
+					show_browser(user, null, "window=pacontrol")
 					return
 			user.machine = src
 
@@ -230,6 +230,6 @@
 				dat += "Particle Strength: [src.strength] "
 				dat += "<A href='?src=\ref[src];strengthdown=1'>--</A>|<A href='?src=\ref[src];strengthup=1'>++</A><BR><BR>"
 
-			user << browse(dat, "window=pacontrol;size=420x500")
+			show_browser(user, dat, "window=pacontrol;size=420x500")
 			onclose(user, "pacontrol")
 			return

@@ -202,7 +202,7 @@
 		*/
 
 		output += "</ body></html>"
-		user << browse(output, "window=mech_bay_console")
+		show_browser(user, output, "window=mech_bay_console")
 		onclose(user, "mech_bay_console")
 		return
 

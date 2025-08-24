@@ -54,7 +54,7 @@
 	Topic(href, href_list)
 		..()
 		if( href_list["close"] )
-			usr << browse(null, "window=fuel_monitor")
+			show_browser(usr, null, "window=fuel_monitor")
 			usr.machine = null
 			return
 		if( href_list["beginstage"] )
@@ -126,7 +126,7 @@
 			if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 				if (!istype(user, /mob/living/silicon))
 					user.machine = null
-					user << browse(null, "window=fuel_monitor")
+					show_browser(user, null, "window=fuel_monitor")
 					return
 			var/t = "<B>Reactor Core Fuel Control</B><BR>"
 			var/cooling = 0
@@ -169,5 +169,5 @@
 					t += "</tr>"
 			t += "</table>"
 			t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-			user << browse(t, "window=fuel_monitor;size=500x600")
+			show_browser(user, t, "window=fuel_monitor;size=500x600")
 			user.machine = src

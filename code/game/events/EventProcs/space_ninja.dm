@@ -535,7 +535,7 @@ As such, it's hard-coded for now. No reason for it not to be, really.
 		U:gloves.item_state = "s-ninjan"
 	else
 		if(U.mind.special_role!="Space Ninja")
-			U << "\red <B>fÄTaL ÈÈRRoR</B>: 382200-*#00CÖDE <B>RED</B>\nUNAU†HORIZED USÈ DETÈC†††eD\nCoMMÈNCING SUB-R0U†IN3 13...\nTÈRMInATING U-U-USÈR..."
+			U << "\red <B>fï¿½TaL ï¿½ï¿½RRoR</B>: 382200-*#00Cï¿½DE <B>RED</B>\nUNAUï¿½HORIZED USï¿½ DETï¿½Cï¿½ï¿½ï¿½eD\nCoMMï¿½NCING SUB-R0Uï¿½IN3 13...\nTï¿½RMInATING U-U-USï¿½R..."
 			U.gib()
 			return 0
 		if(!istype(U:head, /obj/item/clothing/head/helmet/space/space_ninja))
@@ -679,7 +679,7 @@ As such, it's hard-coded for now. No reason for it not to be, really.
 
 	cancel_stealth()
 
-	U << browse(null, "window=spideros")
+	show_browser(U, null, "window=spideros")
 	U << "\red Do or Die, <b>LET'S ROCK!!</b>"
 
 /obj/item/clothing/suit/space/space_ninja/proc/remove_kamikaze(mob/living/carbon/U)
@@ -848,7 +848,7 @@ BYOND fixed the verb bugs so this is no longer necessary. I prefer verb panels.
 /obj/effect/proc_holder/ai_return_control/Click()
 	var/mob/living/silicon/ai/A = loc
 	var/obj/item/clothing/suit/space/space_ninja/S = A.loc
-	A << browse(null, "window=hack spideros")//Close window
+	show_browser(A, null, "window=hack spideros")//Close window
 	A << "You have seized your hacking attempt. [S.affecting] has regained control."
 	S.affecting << "<b>UPDATE</b>: [A.real_name] has ceased hacking attempt. All systems clear."
 	S.remove_AI_verbs()

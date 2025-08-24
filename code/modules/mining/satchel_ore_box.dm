@@ -110,7 +110,7 @@
 		dat += text("Bananium ore: [amt_clown]<br>")
 
 	dat += text("<br><br><A href='?src=\ref[src];removeall=1'>Empty box</A>")
-	user << browse("[dat]", "window=orebox")
+	show_browser(user, "[dat]", "window=orebox")
 	return
 
 /obj/structure/ore_box/Topic(href, href_list)

@@ -85,7 +85,7 @@
 		dat += "<HR><BR>"
 	//
 	dat += "<A href='?src=\ref[src];close=1'>Close<BR>"
-	user << browse(dat, "window=artanalyser;size=450x500")
+	show_browser(user, dat, "window=artanalyser;size=450x500")
 	onclose(user, "artanalyser")
 
 /obj/machinery/artifact_analyser/process()
@@ -293,7 +293,7 @@
 		use_power(10)
 
 	if(href_list["close"])
-		usr << browse(null, "window=artanalyser")
+		show_browser(usr, null, "window=artanalyser")
 		usr.machine = null
 
 	src.updateDialog()

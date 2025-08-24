@@ -31,7 +31,7 @@
 			return
 
 		if( href_list["close"] )
-			usr << browse(null, "window=turbinegen")
+			show_browser(usr, null, "window=turbinegen")
 			usr.machine = null
 
 		else if( href_list["str"] )
@@ -98,7 +98,7 @@
 		dat += "<HR>"
 		dat += "<A href='?src=\ref[src];refresh=1'>Refresh</A> <A href='?src=\ref[src];close=1'>Close</A><BR>"
 
-		user << browse(dat, "window=turbinegen;size=400x500")
+		show_browser(user, dat, "window=turbinegen;size=400x500")
 		onclose(user, "turbinegen")
 
 /obj/machinery/power/turbine
@@ -173,7 +173,7 @@
 		dat += "<HR>"
 		dat += "<A href='?src=\ref[src];refresh=1'>Refresh</A> <A href='?src=\ref[src];close=1'>Close</A><BR>"
 
-		user << browse(dat, "window=turbinegen;size=400x500")
+		show_browser(user, dat, "window=turbinegen;size=400x500")
 		onclose(user, "turbinegen")
 
 	Topic(href, href_list)
@@ -181,7 +181,7 @@
 			return
 
 		if( href_list["close"] )
-			usr << browse(null, "window=turbinegen")
+			show_browser(usr, null, "window=turbinegen")
 			usr.machine = null
 
 		src.updateDialog()
@@ -303,7 +303,7 @@
 			dat += "\red<B>No compatible attached compressors found."
 		dat += "<A href='?src=\ref[src];refresh=1'>Refresh</A> <A href='?src=\ref[src];close=1'>Close</A><BR>"
 
-		user << browse(dat, "window=turbinecomp;size=400x500")
+		show_browser(user, dat, "window=turbinecomp;size=400x500")
 		onclose(user, "turbinecomp")
 
 	Topic(href, href_list)
@@ -331,7 +331,7 @@
 				C.starter = !C.starter
 
 		else if( href_list["close"] )
-			usr << browse(null, "window=turbinecomp")
+			show_browser(usr, null, "window=turbinecomp")
 			usr.machine = null
 
 		src.updateDialog()

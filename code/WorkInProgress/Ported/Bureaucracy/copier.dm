@@ -66,7 +66,7 @@
 
 	dat += "</TT>"
 
-	user << browse(dat, "window=copy_machine")
+	show_browser(user, dat, "window=copy_machine")
 	onclose(user, "copy_machine")
 
 /obj/machinery/copier/proc/update()

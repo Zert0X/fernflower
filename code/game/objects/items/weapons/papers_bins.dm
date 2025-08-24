@@ -74,7 +74,7 @@ NOTEBOOK
 		t = dd_replacetext(t, "\[/i\]", "")
 		t = dd_replacetext(t, "\[u\]", "")
 		t = dd_replacetext(t, "\[/u\]", "")
-		usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", src.name, stars(t)), text("window=[]", src.name))
+		show_browser(usr, text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", src.name, stars(t)), text("window=[]", src.name))
 		onclose(usr, "[src.name]")
 	else
 		// if people want lazy bb-code
@@ -86,7 +86,7 @@ NOTEBOOK
 		t = dd_replacetext(t, "\[u\]", "<U>")
 		t = dd_replacetext(t, "\[/u\]", "</U>")
 		t = text("<font face=calligrapher>[]</font>", t)
-		usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", src.name, t), text("window=[]", src.name))
+		show_browser(usr, text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", src.name, t), text("window=[]", src.name))
 		onclose(usr, "[src.name]")
 	return
 
@@ -117,10 +117,10 @@ NOTEBOOK
 	else //cyborg or AI not seeing through a camera
 		dist = get_dist(src, user)
 	if (dist < 2)
-		usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", src.name, src.info), text("window=[]", src.name))
+		show_browser(usr, text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", src.name, src.info), text("window=[]", src.name))
 		onclose(usr, "[src.name]")
 	else
-		usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", src.name, stars(src.info)), text("window=[]", src.name))
+		show_browser(usr, text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", src.name, stars(src.info)), text("window=[]", src.name))
 		onclose(usr, "[src.name]")
 	return
 
@@ -635,7 +635,7 @@ NOTEBOOK
 		dat += text("<A href='?src=\ref[];pen=1'>Remove Pen</A><BR><HR>", src)
 	for(var/obj/item/weapon/paper/P in src)
 		dat += text("<A href='?src=\ref[];read=\ref[]'>[]</A> <A href='?src=\ref[];write=\ref[]'>Write</A> <A href='?src=\ref[];remove=\ref[]'>Remove</A><BR>", src, P, P.name, src, P, src, P)
-	user << browse(dat, "window=clipboard")
+	show_browser(user, dat, "window=clipboard")
 	onclose(user, "clipboard")
 	return
 
@@ -695,10 +695,10 @@ NOTEBOOK
 			var/obj/item/weapon/paper/P = locate(href_list["read"])
 			if ((P && P.loc == src))
 				if (!( istype(usr, /mob/living/carbon/human) ))
-					usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", P.name, stars(P.info)), text("window=[]", P.name))
+					show_browser(usr, text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", P.name, stars(P.info)), text("window=[]", P.name))
 					onclose(usr, "[P.name]")
 				else
-					usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", P.name, P.info), text("window=[]", P.name))
+					show_browser(usr, text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", P.name, P.info), text("window=[]", P.name))
 					onclose(usr, "[P.name]")
 		if (ismob(src.loc))
 			var/mob/M = src.loc

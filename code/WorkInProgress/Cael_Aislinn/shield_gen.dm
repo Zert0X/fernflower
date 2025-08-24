@@ -215,7 +215,7 @@
 /obj/machinery/shield_gen/Topic(href, href_list[])
 	..()
 	if( href_list["close"] )
-		usr << browse(null, "window=shield_generator")
+		show_browser(usr, null, "window=shield_generator")
 		usr.machine = null
 		return
 	else if( href_list["toggle"] )
@@ -245,7 +245,7 @@
 	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 		if (!istype(user, /mob/living/silicon))
 			user.machine = null
-			user << browse(null, "window=shield_generator")
+			show_browser(user, null, "window=shield_generator")
 			return
 	var/t = "<B>Shield Generator Control Console</B><BR>"
 	t += "[owned_capacitor ? "<font color=green>Charge capacitor connected.</font>" : "<font color=red>Unable to locate charge capacitor!</font>"]<br>"
@@ -258,7 +258,7 @@
 	t += "Maximum field strength (avg across field): <a href='?src=\ref[src];max_field_strength=-100'>\[min\]</a> <a href='?src=\ref[src];max_field_strength=-10'>--</a> <a href='?src=\ref[src];max_field_strength=-1'>-</a>[max_field_strength] Renwicks <a href='?src=\ref[src];max_field_strength=1'>+</a> <a href='?src=\ref[src];max_field_strength=10'>++</a> <a href='?src=\ref[src];max_field_strength=100'>\[max\]</a><br>"
 	t += "<hr>"
 	t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-	user << browse(t, "window=shield_generator;size=500x800")
+	show_browser(user, t, "window=shield_generator;size=500x800")
 	user.machine = src
 
 /obj/machinery/shield_gen/proc/get_shielded_turfs()

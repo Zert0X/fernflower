@@ -28,7 +28,7 @@ obj/machinery/embedded_controller
 	var/on = 1
 
 	attack_hand(mob/user)
-		user << browse(return_text(), "window=computer")
+		show_browser(user, return_text(), "window=computer")
 		user.machine = src
 		onclose(user, "computer")
 

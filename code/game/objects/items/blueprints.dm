@@ -84,7 +84,7 @@ move an amendment</a> to the designs.</p>
 		else
 			return
 	text += "</BODY></HTML>"
-	usr << browse(text, "window=blueprints")
+	show_browser(usr, text, "window=blueprints")
 	onclose(usr, "blueprints")
 
 /obj/item/blueprints/proc/get_area_type(var/turf/T = get_turf(src))

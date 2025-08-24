@@ -246,7 +246,7 @@
 
 		if (href_list["close"])
 			usr.machine = null
-			usr << browse(null, "window=comp2")
+			show_browser(usr, null, "window=comp2")
 			return 0
 
 		if (href_list["quit"])

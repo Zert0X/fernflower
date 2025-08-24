@@ -40,7 +40,7 @@
 		dat += "<A href='byond://?src=\ref[src];spell_choice=17'>Veil Render</A><BR>"
 		dat += "<HR>"
 		dat += "<A href='byond://?src=\ref[src];spell_choice=18'>Re-memorize Spells</A><BR>"
-	user << browse(dat, "window=radio")
+	show_browser(user, dat, "window=radio")
 	onclose(user, "radio")
 	return
 
@@ -263,7 +263,7 @@
 				dat += "<A href='byond://?src=\ref[src];lock=1'>Lock</A><BR>"
 				dat += "<HR>"
 			dat += "<A href='byond://?src=\ref[src];selfdestruct=1'>Self-Destruct</A>"
-	user << browse(dat, "window=radio")
+	show_browser(user, dat, "window=radio")
 	onclose(user, "radio")
 	return
 
@@ -356,7 +356,7 @@
 		else if (href_list["lock"] && src.origradio)
 			// presto chango, a regular radio again! (reset the freq too...)
 			usr.machine = null
-			usr << browse(null, "window=radio")
+			show_browser(usr, null, "window=radio")
 			var/obj/item/device/radio/T = src.origradio
 			var/obj/item/weapon/SWF_uplink/R = src
 			R.loc = T

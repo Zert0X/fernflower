@@ -56,7 +56,7 @@
 	Topic(href, href_list)
 		..()
 		if( href_list["close"] )
-			usr << browse(null, "window=fuel_injector")
+			show_browser(usr, null, "window=fuel_injector")
 			usr.machine = null
 			return
 		if( href_list["begin_injecting"] )
@@ -102,7 +102,7 @@
 			if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 				if (!istype(user, /mob/living/silicon))
 					user.machine = null
-					user << browse(null, "window=fuel_injector")
+					show_browser(user, null, "window=fuel_injector")
 					return
 			var/t = "<B>Reactor Core Fuel Injector</B><hr>"
 			t += "<b>Stage:</b> <font color=blue>[stage]</font><br>"
@@ -148,7 +148,7 @@
 			*/
 			t += "<hr>"
 			t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-			user << browse(t, "window=fuel_injector;size=500x800")
+			show_browser(user, t, "window=fuel_injector;size=500x800")
 			user.machine = src
 
 	proc/BeginInjecting()

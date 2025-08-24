@@ -37,7 +37,7 @@
 "}
 
 
-	user << browse("<HEAD><TITLE>[src]</TITLE></HEAD><TT>[dat]</TT>", "window=pipedispenser")
+	show_browser(user, "<HEAD><TITLE>[src]</TITLE></HEAD><TT>[dat]</TT>", "window=pipedispenser")
 	onclose(user, "pipedispenser")
 	return
 
@@ -45,7 +45,7 @@
 	if(..())
 		return
 	if(unwrenched || !usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
-		usr << browse(null, "window=pipedispenser")
+		show_browser(usr, null, "window=pipedispenser")
 		return
 	usr.machine = src
 	src.add_fingerprint(usr)
@@ -84,7 +84,7 @@
 				src.stat |= MAINT
 				src.unwrenched = 1
 				if (usr.machine==src)
-					usr << browse(null, "window=pipedispenser")
+					show_browser(usr, null, "window=pipedispenser")
 		else /*if (unwrenched==1)*/
 			playsound(src.loc, 'Ratchet.ogg', 50, 1)
 			user << "\blue You begin to fasten \the [src] to the floor..."
@@ -147,7 +147,7 @@ Nah
 <A href='?src=\ref[src];dmake=9'>Sort Junction 2</A><BR>
 "}
 
-	user << browse("<HEAD><TITLE>[src]</TITLE></HEAD><TT>[dat]</TT>", "window=pipedispenser")
+	show_browser(user, "<HEAD><TITLE>[src]</TITLE></HEAD><TT>[dat]</TT>", "window=pipedispenser")
 	return
 
 // 0=straight, 1=bent, 2=junction-j1, 3=junction-j2, 4=junction-y, 5=trunk
@@ -160,7 +160,7 @@ Nah
 	src.add_fingerprint(usr)
 	if(href_list["dmake"])
 		if(unwrenched || !usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
-			usr << browse(null, "window=pipedispenser")
+			show_browser(usr, null, "window=pipedispenser")
 			return
 		if(!wait)
 			var/p_type = text2num(href_list["dmake"])

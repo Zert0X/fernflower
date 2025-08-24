@@ -218,7 +218,7 @@
 		dat += "<BR>\n"
 
 	viewalerts = 1
-	src << browse(dat, "window=aialerts&can_close=0")
+	show_browser(src, dat, "window=aialerts&can_close=0")
 
 /mob/living/silicon/ai/proc/ai_roster()
 	set category = "AI Commands"
@@ -231,7 +231,7 @@
 
 	dat += "</body></html>"
 
-	src << browse(dat, "window=airoster")
+	show_browser(src, dat, "window=airoster")
 	onclose(src, "airoster")
 
 /mob/living/silicon/ai/proc/ai_cancel_call()
@@ -293,7 +293,7 @@
 			viewalerts = 0
 		var/t1 = text("window=[]", href_list["mach_close"])
 		machine = null
-		src << browse(null, t1)
+		show_browser(src, null, t1)
 	if (href_list["switchcamera"])
 		switchCamera(locate(href_list["switchcamera"]))
 	if (href_list["showalerts"])

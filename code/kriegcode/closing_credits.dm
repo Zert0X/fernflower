@@ -42,7 +42,7 @@
 </html>
 </body>"}
 	for(var/client/C)
-		C << browse(dat,"window=credits;size=1040x840")
+		show_browser(C, dat,"window=credits;size=1040x840")
 
 /*/mob/verb/credittest()
 	set category = "Special Verbs"

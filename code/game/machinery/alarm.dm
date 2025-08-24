@@ -562,14 +562,14 @@
 		if ( (get_dist(src, user) > 1 ))
 			if (!istype(user, /mob/living/silicon))
 				user.machine = null
-				user << browse(null, "window=air_alarm")
-				user << browse(null, "window=AAlarmwires")
+				show_browser(user, null, "window=air_alarm")
+				show_browser(user, null, "window=AAlarmwires")
 				return
 
 
 			else if (istype(user, /mob/living/silicon) && aidisabled)
 				user << "AI control for this Air Alarm interface has been disabled."
-				user << browse(null, "window=air_alarm")
+				show_browser(user, null, "window=air_alarm")
 				return
 
 		if(wiresexposed && (!istype(user, /mob/living/silicon)))
@@ -594,11 +594,11 @@
 				t1 += "<br>"
 			t1 += text("<br>\n[(locked ? "The Air Alarm is locked." : "The Air Alarm is unlocked.")]<br>\n[((shorted || (stat & (NOPOWER|BROKEN))) ? "The Air Alarm is offline." : "The Air Alarm is working properly!")]<br>\n[(aidisabled ? "The 'AI control allowed' light is off." : "The 'AI control allowed' light is on.")]")
 			t1 += text("<p><a href='?src=\ref[src];close2=1'>Close</a></p></body></html>")
-			user << browse(t1, "window=AAlarmwires")
+			show_browser(user, t1, "window=AAlarmwires")
 			onclose(user, "AAlarmwires")
 
 		if(!shorted)
-			user << browse(return_text(user),"window=air_alarm")
+			show_browser(user, return_text(user),"window=air_alarm")
 			onclose(user, "air_alarm")
 
 		return
@@ -872,8 +872,8 @@ table tr:first-child th:first-child { border: none;}
 		if ( (get_dist(src, usr) > 1 ))
 			if (!istype(usr, /mob/living/silicon))
 				usr.machine = null
-				usr << browse(null, "window=air_alarm")
-				usr << browse(null, "window=AAlarmwires")
+				show_browser(usr, null, "window=air_alarm")
+				show_browser(usr, null, "window=AAlarmwires")
 				return
 
 		add_fingerprint(usr)
@@ -1116,7 +1116,7 @@ table tr:first-child th:first-child { border: none;}
 		var/second = src.time % 60
 		var/minute = (src.time - second) / 60
 		var/dat = "<HTML><HEAD></HEAD><BODY><TT><B>Fire alarm</B> [d1]\n<HR>The current alert level is: [get_security_level()]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? "[minute]:" : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n</TT></BODY></HTML>"
-		user << browse(dat, "window=firealarm")
+		show_browser(user, dat, "window=firealarm")
 		onclose(user, "firealarm")
 	else
 		A = A.loc
@@ -1131,7 +1131,7 @@ table tr:first-child th:first-child { border: none;}
 		var/second = src.time % 60
 		var/minute = (src.time - second) / 60
 		var/dat = "<HTML><HEAD></HEAD><BODY><TT><B>[stars("Fire alarm")]</B> [d1]\n<HR><b>The current alert level is: [stars(get_security_level())]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? text("[]:", minute) : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n</TT></BODY></HTML>"
-		user << browse(dat, "window=firealarm")
+		show_browser(user, dat, "window=firealarm")
 		onclose(user, "firealarm")
 	return
 
@@ -1158,7 +1158,7 @@ table tr:first-child th:first-child { border: none;}
 
 		src.add_fingerprint(usr)
 	else
-		usr << browse(null, "window=firealarm")
+		show_browser(usr, null, "window=firealarm")
 		return
 	return
 
@@ -1224,7 +1224,7 @@ table tr:first-child th:first-child { border: none;}
 		var/second = src.time % 60
 		var/minute = (src.time - second) / 60
 		var/dat = text("<HTML><HEAD></HEAD><BODY><TT><B>Party Button</B> []\n<HR>\nTimer System: []<BR>\nTime Left: [][] <A href='?src=\ref[];tp=-30'>-</A> <A href='?src=\ref[];tp=-1'>-</A> <A href='?src=\ref[];tp=1'>+</A> <A href='?src=\ref[];tp=30'>+</A>\n</TT></BODY></HTML>", d1, d2, (minute ? text("[]:", minute) : null), second, src, src, src, src)
-		user << browse(dat, "window=partyalarm")
+		show_browser(user, dat, "window=partyalarm")
 		onclose(user, "partyalarm")
 	else
 		A = A.loc
@@ -1239,7 +1239,7 @@ table tr:first-child th:first-child { border: none;}
 		var/second = src.time % 60
 		var/minute = (src.time - second) / 60
 		var/dat = text("<HTML><HEAD></HEAD><BODY><TT><B>[]</B> []\n<HR>\nTimer System: []<BR>\nTime Left: [][] <A href='?src=\ref[];tp=-30'>-</A> <A href='?src=\ref[];tp=-1'>-</A> <A href='?src=\ref[];tp=1'>+</A> <A href='?src=\ref[];tp=30'>+</A>\n</TT></BODY></HTML>", stars("Party Button"), d1, d2, (minute ? text("[]:", minute) : null), second, src, src, src, src)
-		user << browse(dat, "window=partyalarm")
+		show_browser(user, dat, "window=partyalarm")
 		onclose(user, "partyalarm")
 	return
 
@@ -1286,6 +1286,6 @@ table tr:first-child th:first-child { border: none;}
 
 		src.add_fingerprint(usr)
 	else
-		usr << browse(null, "window=partyalarm")
+		show_browser(usr, null, "window=partyalarm")
 		return
 	return

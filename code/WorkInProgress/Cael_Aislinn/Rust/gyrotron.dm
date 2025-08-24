@@ -30,7 +30,7 @@
 	Topic(href, href_list)
 		..()
 		if( href_list["close"] )
-			usr << browse(null, "window=gyro_monitor")
+			show_browser(usr, null, "window=gyro_monitor")
 			usr.machine = null
 			return
 		if( href_list["modifypower"] )
@@ -177,7 +177,7 @@
 			if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 				if (!istype(user, /mob/living/silicon))
 					user.machine = null
-					user << browse(null, "window=gyro_monitor")
+					show_browser(user, null, "window=gyro_monitor")
 					return
 			var/t = "<B>Free electron MASER (Gyrotron) Control Panel</B><BR>"
 			if(owned_gyrotron && owned_gyrotron.on)
@@ -194,5 +194,5 @@
 				t += "<b><font color=red>Gyrotron unresponsive</font></b>"
 			t += "<hr>"
 			t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-			user << browse(t, "window=gyro_monitor;size=500x800")
+			show_browser(user, t, "window=gyro_monitor;size=500x800")
 			user.machine = src

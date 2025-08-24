@@ -2390,7 +2390,7 @@ It can still be worn/put on as normal.
 	<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>
 	<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>
 	<BR>"}
-	user << browse(dat, text("window=mob[name];size=340x480"))
+	show_browser(user, dat, text("window=mob[name];size=340x480"))
 	onclose(user, "mob[name]")
 	return
 
@@ -2563,7 +2563,7 @@ It can still be worn/put on as normal.
 	if (href_list["mach_close"])
 		var/t1 = text("window=[]", href_list["mach_close"])
 		machine = null
-		src << browse(null, t1)
+		show_browser(src, null, t1)
 
 	if ((href_list["item"] && !( usr.stat ) && usr.canmove && !( usr.restrained() ) && in_range(src, usr) && ticker)) //if game hasn't started, can't make an equip_e
 		var/obj/effect/equip_e/human/O = new /obj/effect/equip_e/human(  )

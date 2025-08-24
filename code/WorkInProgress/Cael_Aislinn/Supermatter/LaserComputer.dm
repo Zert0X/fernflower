@@ -32,7 +32,7 @@
 			if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 				if (!istype(user, /mob/living/silicon))
 					user.machine = null
-					user << browse(null, "window=laser_control")
+					show_browser(user, null, "window=laser_control")
 					return
 			var/t = "<TT><B>Laser status monitor</B><HR>"
 			for(var/obj/machinery/emitter/zero_point_laser/laser in lasers)
@@ -44,7 +44,7 @@
 				t += "Temperature: [air.temperature] K<BR>"
 			t += "<hr>"
 			t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-			user << browse(t, "window=laser_control;size=500x800")
+			show_browser(user, t, "window=laser_control;size=500x800")
 			user.machine = src
 
 /*
@@ -53,7 +53,7 @@
 	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 		if (!istype(user, /mob/living/silicon))
 			user.machine = null
-			user << browse(null, "window=powcomp")
+			show_browser(user, null, "window=powcomp")
 			return
 
 
@@ -75,14 +75,14 @@
 
 		t += "<BR><HR><A href='?src=\ref[src];close=1'>Close</A></TT>"
 
-	user << browse(t, "window=lascomp;size=420x700")
+	show_browser(user, t, "window=lascomp;size=420x700")
 	onclose(user, "lascomp")
 */
 
 /obj/machinery/computer/lasercon/Topic(href, href_list)
 	..()
 	if( href_list["close"] )
-		usr << browse(null, "window=laser_control")
+		show_browser(usr, null, "window=laser_control")
 		usr.machine = null
 		return
 

@@ -232,8 +232,8 @@ datum/preferences
 		HTML += "</table>"
 		HTML += "<a href=\"byond://?src=\ref[user];skills=1;preferences=1;cancel=1;\">\[Done\]</a>"
 
-		user << browse(null, "window=preferences")
-		user << browse(HTML, "window=show_skills;size=600x800")
+		show_browser(user, null, "window=preferences")
+		show_browser(user, HTML, "window=show_skills;size=600x800")
 		return
 
 
@@ -351,7 +351,7 @@ datum/preferences
 		dat += "<a href='byond://?src=\ref[user];preferences=1;reset_all=1'>Reset Setup</a><br>"
 		dat += "</body></html>"
 
-		user << browse(dat, "window=preferences;size=300x710")
+		show_browser(user, dat, "window=preferences;size=300x710")
 	proc/loadsave(mob/user)
 		var/dat = "<body>"
 		dat += "<tt><center>"
@@ -362,9 +362,9 @@ datum/preferences
 
 		dat += "<a href='byond://?src=\ref[user];preferences=1;loadslot=CLOSE'>Close</a><br>"
 		dat += "</center></tt>"
-		user << browse(dat, "window=saves;size=300x640")
+		show_browser(user, dat, "window=saves;size=300x640")
 	proc/closesave(mob/user)
-		user << browse(null, "window=saves;size=300x640")
+		show_browser(user, null, "window=saves;size=300x640")
 
 	proc/SetDisabilities(mob/user)
 		var/HTML = "<body>"
@@ -382,8 +382,8 @@ datum/preferences
 		HTML += "<a href=\"byond://?src=\ref[user];preferences=1;disabilities=-2\">\[Done\]</a>"
 		HTML += "</center></tt>"
 
-		user << browse(null, "window=preferences")
-		user << browse(HTML, "window=disabil;size=350x300")
+		show_browser(user, null, "window=preferences")
+		show_browser(user, HTML, "window=disabil;size=350x300")
 		return
 
 	proc/SetRecords(mob/user)
@@ -409,8 +409,8 @@ datum/preferences
 		HTML += "<a href=\"byond://?src=\ref[user];preferences=1;records=-1\">\[Done\]</a>"
 		HTML += "</center></tt>"
 
-		user << browse(null, "window=preferences")
-		user << browse(HTML, "window=records;size=350x300")
+		show_browser(user, null, "window=preferences")
+		show_browser(user, HTML, "window=records;size=350x300")
 		return
 
 	proc/GetAltTitle(datum/job/job)
@@ -505,15 +505,15 @@ datum/preferences
 
 		HTML += "</center></tt>"
 
-		user << browse(null, "window=preferences")
-		user << browse(HTML, "window=mob_occupation;size=[width]x[height]")
+		show_browser(user, null, "window=preferences")
+		show_browser(user, HTML, "window=mob_occupation;size=[width]x[height]")
 		return
 
 
 	proc/SetJob(mob/user, role)
 		var/datum/job/job = job_master.GetJob(role)
 		if(!job)
-			user << browse(null, "window=mob_occupation")
+			show_browser(user, null, "window=mob_occupation")
 			ShowChoices(user)
 			return
 
@@ -623,7 +623,7 @@ datum/preferences
 			return
 		if(link_tags["occ"])
 			if(link_tags["cancel"])
-				user << browse(null, "window=\ref[user]occupation")
+				show_browser(user, null, "window=\ref[user]occupation")
 				return
 			else if(link_tags["job"])
 				SetJob(user, link_tags["job"])
@@ -638,13 +638,13 @@ datum/preferences
 
 		if(link_tags["skills"])
 			if(link_tags["cancel"])
-				user << browse(null, "window=show_skills")
+				show_browser(user, null, "window=show_skills")
 				ShowChoices(user)
 				return
 			else if(link_tags["skillinfo"])
 				var/datum/skill/S = locate(link_tags["skillinfo"])
 				var/HTML = "<b>[S.name]</b><br>[S.desc]"
-				user << browse(HTML, "window=\ref[user]skillinfo")
+				show_browser(user, HTML, "window=\ref[user]skillinfo")
 			else if(link_tags["setskill"])
 				var/datum/skill/S = locate(link_tags["setskill"])
 				var/value = text2num(link_tags["newvalue"])
@@ -1064,14 +1064,14 @@ datum/preferences
 				SetDisabilities(user)
 				return
 			else
-				user << browse(null, "window=disabil")
+				show_browser(user, null, "window=disabil")
 
 		if(link_tags["records"])
 			if(text2num(link_tags["records"]) >= 1)
 				SetRecords(user)
 				return
 			else
-				user << browse(null, "window=records")
+				show_browser(user, null, "window=records")
 
 		if(link_tags["med_record"])
 			var/medmsg = input(usr,"Set your medical notes here.","Medical Records",html_decode(med_record)) as message

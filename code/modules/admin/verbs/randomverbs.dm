@@ -926,4 +926,4 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	dat += "<hr><a href='?src=\ref[holder];rnd_max=1'>Max out tech levels.</a>"
 
-	usr << browse(dat, "window=chk_design")
+	show_browser(usr, dat, "window=chk_design")

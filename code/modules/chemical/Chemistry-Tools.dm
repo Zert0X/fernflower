@@ -222,7 +222,7 @@
 		<BR> <B> Beaker two:</B> [beaker_two] [beaker_two ? "<A href='?src=\ref[src];beakertwo=1'>Remove</A>" : ""]
 		<BR> <B> Control attachment:</B> [attached_device ? "<A href='?src=\ref[src];device=1'>[attached_device]</A>" : "None"] [attached_device ? "<A href='?src=\ref[src];rem_device=1'>Remove</A>" : ""]"}
 
-		user << browse(dat, "window=trans_valve;size=600x300")
+		show_browser(user, dat, "window=trans_valve;size=600x300")
 		onclose(user, "trans_valve")
 		return
 

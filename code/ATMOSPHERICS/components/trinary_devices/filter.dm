@@ -192,7 +192,7 @@ obj/machinery/atmospherics/trinary/filter/attack_hand(user as mob) // -- TLE
 			[src.target_pressure] | <a href='?src=\ref[src];set_press=1'>Change</a>
 			"}
 /*
-		user << browse("<HEAD><TITLE>[src.name] control</TITLE></HEAD>[dat]","window=atmo_filter")
+		show_browser(user, "<HEAD><TITLE>[src.name] control</TITLE></HEAD>[dat]","window=atmo_filter")
 		onclose(user, "atmo_filter")
 		return
 
@@ -201,7 +201,7 @@ obj/machinery/atmospherics/trinary/filter/attack_hand(user as mob) // -- TLE
 	//else
 	//	src.on != src.on
 */
-	user << browse("<HEAD><TITLE>[src.name] control</TITLE></HEAD><TT>[dat]</TT>", "window=atmo_filter")
+	show_browser(user, "<HEAD><TITLE>[src.name] control</TITLE></HEAD><TT>[dat]</TT>", "window=atmo_filter")
 	onclose(user, "atmo_filter")
 	return
 

@@ -186,4 +186,4 @@
 			number++
 	list += {"<br><br><A href='byond://?src=\ref[src];laws=1'>State Laws</A>"}
 
-	usr << browse(list, "window=laws")
+	show_browser(usr, list, "window=laws")

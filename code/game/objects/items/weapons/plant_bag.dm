@@ -166,7 +166,7 @@
 				dat += "<br>"
 
 		dat += "</TT>"
-	user << browse("<HEAD><TITLE>SmartFridge Supplies</TITLE></HEAD><TT>[dat]</TT>", "window=smartfridge")
+	show_browser(user, "<HEAD><TITLE>SmartFridge Supplies</TITLE></HEAD><TT>[dat]</TT>", "window=smartfridge")
 	onclose(user, "smartfridge")
 	return
 

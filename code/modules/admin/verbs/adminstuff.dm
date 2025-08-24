@@ -72,7 +72,7 @@
 
 	dat += "<br><br><A HREF='?src=\ref[src];controlpanel=oldbanstodb'>Move bans to DB</A> - use only once!<br>"
 
-	usr << browse(dat, "window=controlpanel")
+	show_browser(usr, dat, "window=controlpanel")
 
 /obj/admins/Topic(href, href_list)
 	..()
@@ -88,22 +88,22 @@
 				if(!text)
 					return
 				dat += "<b>[fname]:</b><br><br><pre>[text]</pre>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				return
 			if("editfile")
 				dat += "<font color=red>Attention: Don't be a dick.</font><br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				var/fname = input("Filename","Filename","config/laureates.txt") as text|null
 				if(!fname)
 					dat += "Cancelled.<br>"
-					usr << browse(dat, "window=controlpanel")
+					show_browser(usr, dat, "window=controlpanel")
 					return
 				var/text = file2text(fname)
 
 				var/newtext = input("Edit file:", "Edit file", text) as message|null
 				if(!newtext)
 					dat += "Cancelled.<br>"
-					usr << browse(dat, "window=controlpanel")
+					show_browser(usr, dat, "window=controlpanel")
 					return
 				if(fexists(fname))
 					fdel(fname)
@@ -111,7 +111,7 @@
 					dat += "Success!<br>"
 				else
 					dat += "Error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				return
 			if("reloadipblocks")
 				UpdateIpBlocks()
@@ -134,7 +134,7 @@
 						dat += "query.Execute() error: [query.ErrorMsg()]<br>"
 				else
 					dat += "SQL connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				return
 			if("sql_playersjob")
 				var/job = input("Input job:","Select job") as text|null
@@ -154,7 +154,7 @@
 						dat += "query.Execute() error: [query.ErrorMsg()]<br>"
 				else
 					dat += "SQL connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				return
 			if("sql_karmaspender")
 				var/spender = input("Input spender key:","Show karma changes") as text|null
@@ -175,7 +175,7 @@
 					dbcon.Disconnect()
 				else
 					dat += "SQL connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				return
 			if("sql_karmareceiver")
 				var/receiver = input("Input receiver key:","Show karma changes") as text|null
@@ -196,7 +196,7 @@
 					dbcon.Disconnect()
 				else
 					dat += "SQL connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				return
 			if("sql_lib_showbyid")
 				var/bookid = input("Input ID of book","Show by ID") as num|null
@@ -227,7 +227,7 @@
 						dat += "query.Execute() error: [query.ErrorMsg()]<br>"
 				else
 					dat += "SQL connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				return
 			if("sql_lib_changebook")
 				var/sqlquery
@@ -278,7 +278,7 @@
 						dat += "Query error.<br>"
 				else
 					dat += "Connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				return
 			if("sql_findip")
 				var/ip = input("Input IP","Find IP") as text|null
@@ -297,7 +297,7 @@
 						dat += "Query error.<br>"
 				else
 					dat += "Connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				return
 			if("sql_findcompid")
 				var/compid = input("Input computer ID","Find by compid") as text|null
@@ -316,7 +316,7 @@
 						dat += "Query error.<br>"
 				else
 					dat += "Connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 				return
 		/*	if("sql_population")
 				var/tfile = input("Write to:","Filename","data/population.txt") as text|null
@@ -342,7 +342,7 @@
 						dat += "Query error.<br>"
 				else
 					dat += "Connection error.<br>"
-				usr << browse(dat, "window=controlpanel") */
+				show_browser(usr, dat, "window=controlpanel") */
 			if("sql_banslog")
 				var/DBConnection/dbcon = new()
 				dbcon.Connect("dbi:mysql:[sqldb]:[sqladdress]:[sqlport]","[sqllogin]","[sqlpass]")
@@ -378,7 +378,7 @@
 						dat += "Query error.<br>"
 				else
 					dat += "Connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 			if("sql_banslogspecial")
 				var/ckey = input("Input target ckey",null) as null|text
 				if(!ckey)
@@ -417,7 +417,7 @@
 						dat += "Query error.<br>"
 				else
 					dat += "Connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 			if("checkdonators")
 				dat += "Donators list:<br>"
 				for(var/t in donators)
@@ -425,7 +425,7 @@
 				dat += "<br>Special:<br>"
 				for(var/t in donators_special)
 					dat += "[t]:[donators_special[t]]"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 			if("oldbanstodb")
 				if(alert("Are you sure?","Move bans","Yes","No") == "No")
 					return
@@ -440,7 +440,7 @@
 					Banlist.cd = "/base"
 				else
 					Banlist.cd = "/base"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 
 				dat += "=============<br>"
 				Banlist.cd = "/base"
@@ -461,7 +461,7 @@
 					else
 						AddBan(Banlist["key"], Banlist["id"], Banlist["reason"], Banlist["bannedby"], 1, Banlist["minutes"], 1)
 						dat += "Ban moved: [A]<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 			if("spybackup")
 				var/tfile = input("Write to:","Filename","data/spydump.txt") as text|null
 				dat += "Target filename: [tfile]<br>"
@@ -486,7 +486,7 @@
 						dat += "Query error.<br>"
 				else
 					dat += "Connection error.<br>"
-				usr << browse(dat, "window=controlpanel")
+				show_browser(usr, dat, "window=controlpanel")
 
 
 //ip blocks

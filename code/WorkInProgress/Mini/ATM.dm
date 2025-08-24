@@ -39,7 +39,7 @@ log transactions
 	dat += "Welcome, [user_id.registered_name].<br/>"
 	dat += "You have $[user_id.money] in your account.<br/>"
 	dat += "<a href=\"?src=\ref[src]&withdraw=1&id=\ref[user_id]\">Withdraw</a><br/>"
-	user << browse(dat,"window=atm")
+	show_browser(user, dat,"window=atm")
 
 /obj/machinery/atm/Topic(var/href, var/href_list)
 	if(href_list["withdraw"] && href_list["id"])
@@ -67,7 +67,7 @@ log transactions
 					if(1000)
 						new /obj/item/weapon/money/c1000(loc)
 			else
-				usr << browse("You don't have that much money!<br/><a href=\"?src=\ref[src]\">Back</a>","window=atm")
+				show_browser(usr, "You don't have that much money!<br/><a href=\"?src=\ref[src]\">Back</a>","window=atm")
 				return
 	src.attack_hand(usr)
 

@@ -64,7 +64,7 @@
 		return
 	user.machine = src
 	var/dat = text("<TT><B>Loaded Tank Dispensing Unit</B><BR>\n<FONT color = 'blue'><B>Oxygen</B>: []</FONT> []<BR>\n<FONT color = 'orange'><B>Plasma</B>: []</FONT> []<BR>\n</TT>", src.o2tanks, (src.o2tanks ? text("<A href='?src=\ref[];oxygen=1'>Dispense</A>", src) : "empty"), src.pltanks, (src.pltanks ? text("<A href='?src=\ref[];plasma=1'>Dispense</A>", src) : "empty"))
-	user << browse(dat, "window=dispenser")
+	show_browser(user, dat, "window=dispenser")
 	onclose(user, "dispenser")
 	return
 
@@ -106,7 +106,7 @@
 			if ((M.client && M.machine == src))
 				src.attack_hand(M)
 	else
-		usr << browse(null, "window=dispenser")
+		show_browser(usr, null, "window=dispenser")
 		return
 	return
 

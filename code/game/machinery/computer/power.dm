@@ -63,7 +63,7 @@
 	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 		if (!istype(user, /mob/living/silicon))
 			user.machine = null
-			user << browse(null, "window=powcomp")
+			show_browser(user, null, "window=powcomp")
 			return
 
 
@@ -105,14 +105,14 @@
 
 		t += "</FONT></PRE></TT>"
 
-	user << browse(t, "window=powcomp;size=420x900")
+	show_browser(user, t, "window=powcomp;size=420x900")
 	onclose(user, "powcomp")
 
 
 /obj/machinery/power/monitor/Topic(href, href_list)
 	..()
 	if( href_list["close"] )
-		usr << browse(null, "window=powcomp")
+		show_browser(usr, null, "window=powcomp")
 		usr.machine = null
 		return
 	if( href_list["update"] )

@@ -87,7 +87,7 @@ obj/machinery/computer/general_air_control
 	var/datum/radio_frequency/radio_connection
 
 	attack_hand(mob/user)
-		user << browse(return_text(),"window=computer")
+		show_browser(user, return_text(),"window=computer")
 		user.machine = src
 		onclose(user, "computer")
 

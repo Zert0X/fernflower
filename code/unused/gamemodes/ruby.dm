@@ -203,7 +203,7 @@
 	var/tilesizex=32
 	var/tilesizey=32
 	//If the temp. file exists, delete it
-	src << browse("<h2>Sensing prey...</h2>", "window=hunt")
+	show_browser(src, "<h2>Sensing prey...</h2>", "window=hunt")
 	if (fexists(filename)) fdel(filename)
 
 	//Display everything in the world
@@ -240,7 +240,7 @@
 	text2file("</table></body></html>",filename)
 
 	//Display it
-	src << browse(file(filename),"window=hunt")
+	show_browser(src, file(filename),"window=hunt")
 
 
 

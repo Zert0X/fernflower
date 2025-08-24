@@ -32,7 +32,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 				pai.real_name = pai.name
 				card.pai = pai
 				pai.init()
-				usr << browse(null, "window=findPai")
+				show_browser(usr, null, "window=findPai")
 			else if(istype(card,/obj/item/device/paicard) && istype(candidate,/datum/paiCandidate))
 				var/mob/living/silicon/pai/pai = new(card)
 				pai.name = candidate.name
@@ -41,7 +41,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 				card.pai = pai
 				card.looking_for_personality = 0
 				pai_candidates.Remove(candidate)
-				usr << browse(null, "window=findPai")
+				show_browser(usr, null, "window=findPai")
 		if(href_list["new"])
 			var/datum/paiCandidate/candidate = locate(href_list["candidate"])
 			var/option = href_list["option"]
@@ -85,7 +85,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 						for(var/obj/item/device/paicard/p in world)
 							if(p.looking_for_personality == 1)
 								p.alertUpdate()
-					usr << browse(null, "window=paiRecruit")
+					show_browser(usr, null, "window=paiRecruit")
 					return
 			recruitWindow(usr)
 
@@ -138,7 +138,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		dat += "<a href='byond://?src=\ref[src];option=save;new=1;candidate=\ref[candidate]'>Save Personality</a><br>"
 		dat += "<a href='byond://?src=\ref[src];option=load;new=1;candidate=\ref[candidate]'>Load Personality</a><br>"
 
-		M << browse(dat, "window=paiRecruit;can_close=0;can_minimize=0")
+		show_browser(M, dat, "window=paiRecruit;can_close=0;can_minimize=0")
 
 	proc/findPAI(var/obj/item/device/paicard/p, var/mob/user)
 		requestRecruits(user)
@@ -190,7 +190,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 
 		dat += "</table>"
 
-		user << browse(dat, "window=findPai")
+		show_browser(user, dat, "window=findPai")
 	proc/requestRecruits(var/mob/origin)
 		for(var/mob/dead/observer/O in world)
 			if(jobban_isbanned(O, "pAI"))

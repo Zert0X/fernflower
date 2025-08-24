@@ -122,7 +122,7 @@ obj/machinery/computer/forensic_scanning
 				dat += "<tt>[scan_data]</tt>"
 				if(scan_data && !scan_process)
 					dat += "<br><a href='?src=\ref[src];operation=erase'>{Erase Data}</a>"
-		user << browse(dat,"window=scanner")
+		show_browser(user, dat,"window=scanner")
 		onclose(user,"scanner")
 
 

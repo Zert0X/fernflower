@@ -6,7 +6,7 @@ obj/machinery/gas_chromatography
 
 obj/machinery/gas_chromatography/Topic(href, href_list)
 	if(href_list["close"])
-		usr << browse(null, "window=artanalyser")
+		show_browser(usr, null, "window=artanalyser")
 		usr.machine = null
 
 	updateDialog()
@@ -19,7 +19,7 @@ obj/machinery/gas_chromatography/attack_hand(var/mob/user as mob)
 	dat += "<hr>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh<BR>"
 	dat += "<A href='?src=\ref[src];close=1'>Close<BR>"
-	user << browse(dat, "window=artanalyser;size=450x500")
+	show_browser(user, dat, "window=artanalyser;size=450x500")
 	onclose(user, "artanalyser")
 
 obj/machinery/accelerator
@@ -30,7 +30,7 @@ obj/machinery/accelerator
 
 obj/machinery/accelerator/Topic(href, href_list)
 	if(href_list["close"])
-		usr << browse(null, "window=artanalyser")
+		show_browser(usr, null, "window=artanalyser")
 		usr.machine = null
 
 	updateDialog()
@@ -43,7 +43,7 @@ obj/machinery/accelerator/attack_hand(var/mob/user as mob)
 	dat += "<hr>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh<BR>"
 	dat += "<A href='?src=\ref[src];close=1'>Close<BR>"
-	user << browse(dat, "window=artanalyser;size=450x500")
+	show_browser(user, dat, "window=artanalyser;size=450x500")
 	onclose(user, "artanalyser")
 
 obj/machinery/fourier_transform
@@ -54,7 +54,7 @@ obj/machinery/fourier_transform
 
 obj/machinery/fourier_transform/Topic(href, href_list)
 	if(href_list["close"])
-		usr << browse(null, "window=artanalyser")
+		show_browser(usr, null, "window=artanalyser")
 		usr.machine = null
 
 	updateDialog()
@@ -67,7 +67,7 @@ obj/machinery/fourier_transform/attack_hand(var/mob/user as mob)
 	dat += "<hr>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh<BR>"
 	dat += "<A href='?src=\ref[src];close=1'>Close<BR>"
-	user << browse(dat, "window=artanalyser;size=450x500")
+	show_browser(user, dat, "window=artanalyser;size=450x500")
 	onclose(user, "artanalyser")
 
 obj/machinery/radiometric
@@ -78,7 +78,7 @@ obj/machinery/radiometric
 
 obj/machinery/radiometric/Topic(href, href_list)
 	if(href_list["close"])
-		usr << browse(null, "window=artanalyser")
+		show_browser(usr, null, "window=artanalyser")
 		usr.machine = null
 
 	updateDialog()
@@ -91,7 +91,7 @@ obj/machinery/radiometric/attack_hand(var/mob/user as mob)
 	dat += "<hr>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh<BR>"
 	dat += "<A href='?src=\ref[src];close=1'>Close<BR>"
-	user << browse(dat, "window=artanalyser;size=450x500")
+	show_browser(user, dat, "window=artanalyser;size=450x500")
 	onclose(user, "artanalyser")
 
 obj/machinery/ion_mobility
@@ -102,7 +102,7 @@ obj/machinery/ion_mobility
 
 obj/machinery/ion_mobility/Topic(href, href_list)
 	if(href_list["close"])
-		usr << browse(null, "window=artanalyser")
+		show_browser(usr, null, "window=artanalyser")
 		usr.machine = null
 
 	updateDialog()
@@ -115,5 +115,5 @@ obj/machinery/ion_mobility/attack_hand(var/mob/user as mob)
 	dat += "<hr>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh<BR>"
 	dat += "<A href='?src=\ref[src];close=1'>Close<BR>"
-	user << browse(dat, "window=artanalyser;size=450x500")
+	show_browser(user, dat, "window=artanalyser;size=450x500")
 	onclose(user, "artanalyser")

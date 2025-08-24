@@ -36,7 +36,7 @@
 			Target output temperature: <A href='?src=\ref[src];temp=-100'>-</A> <A href='?src=\ref[src];temp=-10'>-</A> <A href='?src=\ref[src];temp=-1'>-</A> [current_temperature] <A href='?src=\ref[src];temp=1'>+</A> <A href='?src=\ref[src];temp=10'>+</A> <A href='?src=\ref[src];temp=100'>+</A><BR>
 			"}
 
-			user << browse(dat, "window=freezegun;size=450x300")
+			show_browser(user, dat, "window=freezegun;size=450x300")
 			onclose(user, "freezegun")
 
 

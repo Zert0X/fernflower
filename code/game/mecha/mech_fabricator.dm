@@ -556,7 +556,7 @@
 				</table>
 				</body>
 				</html>"}
-	user << browse(dat, "window=mecha_fabricator;size=1000x400")
+	show_browser(user, dat, "window=mecha_fabricator;size=1000x400")
 	onclose(user, "mecha_fabricator")
 	return
 

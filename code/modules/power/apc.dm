@@ -495,16 +495,16 @@
 	if ( (get_dist(src, user) > 1 ))
 		if (!istype(user, /mob/living/silicon))
 			user.machine = null
-			user << browse(null, "window=apc")
+			show_browser(user, null, "window=apc")
 			return
 		else if (istype(user, /mob/living/silicon) && src.aidisabled && !src.malfhack)
 			user << "AI control for this APC interface has been disabled."
-			user << browse(null, "window=apc")
+			show_browser(user, null, "window=apc")
 			return
 		else if (src.malfai)
 			if ((src.malfai != user && src.malfai != user:parent) && !islinked(user, malfai))
 				user << "AI control for this APC interface has been disabled."
-				user << browse(null, "window=apc")
+				show_browser(user, null, "window=apc")
 				return
 	if(wiresexposed && (!istype(user, /mob/living/silicon)))
 		var/t1 = text("<html><head><title>[area.name] APC wires</title></head><body><B>Access Panel</B><br>\n")
@@ -525,7 +525,7 @@
 			t1 += "<br>"
 		t1 += text("<br>\n[(src.locked ? "The APC is locked." : "The APC is unlocked.")]<br>\n[(src.shorted ? "The APCs power has been shorted." : "The APC is working properly!")]<br>\n[(src.aidisabled ? "The 'AI control allowed' light is off." : "The 'AI control allowed' light is on.")]")
 		t1 += text("<p><a href='?src=\ref[src];close2=1'>Close</a></p></body></html>")
-		user << browse(t1, "window=apcwires")
+		show_browser(user, t1, "window=apcwires")
 		onclose(user, "apcwires")
 
 	user.machine = src
@@ -628,7 +628,7 @@
 	t += "<BR><HR><A href='?src=\ref[src];close=1'>Close</A>"
 
 	t += "</TT></body></html>"
-	user << browse(t, "window=apc")
+	show_browser(user, t, "window=apc")
 	onclose(user, "apc")
 	return
 
@@ -741,7 +741,7 @@
 			istype(user, /mob/living/silicon) || \
 			istype(user, /mob/living/carbon/monkey) /*&& ticker && ticker.mode.name == "monkey"*/) )
 		user << "\red You don't have the dexterity to use this [src]!"
-		user << browse(null, "window=apc")
+		show_browser(user, null, "window=apc")
 		user.machine = null
 		return 0
 	if(user.restrained())
@@ -762,12 +762,12 @@
 			)                                                            \
 		)
 			user << "\red \The [src] has its AI control disabled!"
-			user << browse(null, "window=apc")
+			show_browser(user, null, "window=apc")
 			user.machine = null
 			return 0
 	else
 		if ((!in_range(src, user) || !istype(src.loc, /turf)))
-			user << browse(null, "window=apc")
+			show_browser(user, null, "window=apc")
 			user.machine = null
 			return 0
 	var/mob/living/carbon/human/H = user
@@ -847,11 +847,11 @@
 		updateicon()
 		update()
 	else if( href_list["close"] )
-		usr << browse(null, "window=apc")
+		show_browser(usr, null, "window=apc")
 		usr.machine = null
 		return
 	else if (href_list["close2"])
-		usr << browse(null, "window=apcwires")
+		show_browser(usr, null, "window=apcwires")
 		usr.machine = null
 		return
 

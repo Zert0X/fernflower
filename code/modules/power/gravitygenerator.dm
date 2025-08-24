@@ -108,7 +108,7 @@
 	else
 		dat += "No local gravity generator detected!"
 
-	user << browse(dat, "window=gravgen")
+	show_browser(user, dat, "window=gravgen")
 	onclose(user, "gravgen")
 
 
@@ -119,7 +119,7 @@
 	if ( (get_dist(src, usr) > 1 ))
 		if (!istype(usr, /mob/living/silicon))
 			usr.machine = null
-			usr << browse(null, "window=air_alarm")
+			show_browser(usr, null, "window=air_alarm")
 			return
 
 	if(href_list["gentoggle"])

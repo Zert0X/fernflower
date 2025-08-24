@@ -59,7 +59,7 @@
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh</a><BR>"
 	dat += "<A href='?src=\ref[src];close=1'>Close</a><BR>"
 
-	user << browse(dat, "window=anodevice;size=400x500")
+	show_browser(user, dat, "window=anodevice;size=400x500")
 	onclose(user, "anodevice")
 	return
 
@@ -147,7 +147,7 @@
 		UpdateSprite()
 
 	if(href_list["close"])
-		usr << browse(null, "window=anodevice")
+		show_browser(usr, null, "window=anodevice")
 		usr.machine = null
 	else if(usr)
 		src.interact(usr)

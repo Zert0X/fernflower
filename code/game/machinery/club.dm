@@ -25,7 +25,7 @@
 	<B> </B> [speed != 2 ? "<A href='?src=\ref[src];speed_2=1'>2</A>" : "2"]
 	<B> </B> [speed != 3 ? "<A href='?src=\ref[src];speed_3=1'>3</A>" : "3"]"}
 
-	usr << browse(dat, "window=light_music;size=600x300")
+	show_browser(usr, dat, "window=light_music;size=600x300")
 	onclose(usr, "light_music")
 	return
 

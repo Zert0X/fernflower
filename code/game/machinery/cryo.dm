@@ -94,7 +94,7 @@
 
 		"}
 		user.machine = src
-		user << browse(dat, "window=cryo")
+		show_browser(user, dat, "window=cryo")
 		onclose(user, "cryo")
 
 	Topic(href, href_list)

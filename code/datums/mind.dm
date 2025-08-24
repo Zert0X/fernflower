@@ -55,7 +55,7 @@ datum/mind
 				output += "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 				obj_count++
 
-		recipient << browse(output,"window=memory")
+		show_browser(recipient, output,"window=memory")
 
 	proc/edit_memory()
 		if(!ticker || !ticker.mode)
@@ -297,7 +297,7 @@ datum/mind
 
 		out += "<a href='?src=\ref[src];obj_announce=1'>Announce objectives</a><br><br>"
 
-		usr << browse(out, "window=edit_memory[src]")
+		show_browser(usr, out, "window=edit_memory[src]")
 
 	Topic(href, href_list)
 

@@ -19,7 +19,7 @@ var/flying_time_to_station = 15  //15 sec
 	src.add_fingerprint(usr)
 	var/dat
 	dat = text("<center>Arrival shuttle:<br> <b><A href='?src=\ref[src];move=[1]'>Send</A></b></center>")
-	user << browse("[dat]", "window=miningshuttle;size=200x100")
+	show_browser(user, "[dat]", "window=miningshuttle;size=200x100")
 
 
 /obj/machinery/computer/arrival_shuttle/Topic(href, href_list)

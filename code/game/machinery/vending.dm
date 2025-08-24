@@ -430,7 +430,7 @@ To combat this, I changed the window name. -- Doohl
 		if(product_slogans != "")
 			dat += "The speaker switch is [src.shut_up ? "off" : "on"]. <a href='?src=\ref[src];togglevoice=[1]'>Toggle</a>"
 
-	user << browse(dat, "")
+	show_browser(user, dat, "")
 	onclose(user, "")
 
 /obj/machinery/vending/Topic(href, href_list)
@@ -549,7 +549,7 @@ To combat this, I changed the window name. -- Doohl
 		src.add_fingerprint(usr)
 		src.updateUsrDialog()
 	else
-		usr << browse(null, "window=vending")
+		show_browser(usr, null, "window=vending")
 		return
 	return
 

@@ -65,7 +65,7 @@ proc/move_prison_shuttle()
 	src.add_fingerprint(usr)
 	var/dat
 	dat = text("<center>Prison shuttle:<br> <b><A href='?src=\ref[src];move=[1]'>Send</A></b></center>")
-	user << browse("[dat]", "window=miningshuttle;size=200x100")
+	show_browser(user, "[dat]", "window=miningshuttle;size=200x100")
 
 /obj/machinery/computer/prison_shuttle/Topic(href, href_list)
 	if(..())
@@ -158,7 +158,7 @@ proc/move_deportation_shuttle()
 	src.add_fingerprint(usr)
 	var/dat
 	dat = text("<center>Prison shuttle:<br> <b><A href='?src=\ref[src];move=[1]'>Send</A></b></center>")
-	user << browse("[dat]", "window=miningshuttle;size=200x100")
+	show_browser(user, "[dat]", "window=miningshuttle;size=200x100")
 
 /obj/machinery/computer/deportation_shuttle/Topic(href, href_list)
 	if(..())

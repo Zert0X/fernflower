@@ -35,7 +35,7 @@
 				if (2)
 					dat += "<font color=red>"
 			dat += "[alarm]</font></a><br/>"
-	user << browse(dat, "window=atmoscontrol")
+	show_browser(user, dat, "window=atmoscontrol")
 
 /obj/machinery/computer/atmoscontrol/attackby(var/obj/item/I as obj, var/mob/user as mob)
 	if(istype(I, /obj/item/weapon/card/emag) && !emagged)

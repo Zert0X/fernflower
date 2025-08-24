@@ -40,7 +40,7 @@ ________________________________________________________________________________
 
 /obj/item/clothing/suit/space/space_ninja/Del()
 	if(affecting)//To make sure the window is closed.
-		affecting << browse(null, "window=hack spideros")
+		show_browser(affecting, null, "window=hack spideros")
 	if(AI)//If there are AIs present when the ninja kicks the bucket.
 		killai()
 	if(hologram)//If there is a hologram
@@ -59,7 +59,7 @@ ________________________________________________________________________________
 /obj/item/clothing/suit/space/space_ninja/proc/killai(mob/living/silicon/ai/A = AI)
 	if(A.client)
 		A << "\red Self-erase protocol dete-- *bzzzzz*"
-		A << browse(null, "window=hack spideros")
+		show_browser(A, null, "window=hack spideros")
 	AI = null
 	A.death(1)//Kill, deleting mob.
 	del(A)
@@ -141,7 +141,7 @@ ________________________________________________________________________________
 		if(cell.charge<=0)
 			if(kamikaze)
 				U.say("I DIE TO LIVE AGAIN!")
-				U << browse(null, "window=spideros")//Just in case.
+				show_browser(U, null, "window=spideros")//Just in case.
 				U.death()
 				return
 			cell.charge=0
@@ -165,7 +165,7 @@ ________________________________________________________________________________
 					U << "\blue Extending neural-net interface...\nNow monitoring brain wave pattern..."
 				if(3)
 					if(U.stat==2||U.health<=0)
-						U << "\red <B>FÄ†AL ÈRrÖR</B>: 344--93#†&&21 BRÄÌN |/|/aVÈ PATT$RN <B>RED</B>\nA-A-aBÖrTÌNG..."
+						U << "\red <B>FÄ†AL ï¿½Rrï¿½R</B>: 344--93#ï¿½&&21 BRï¿½ï¿½N |/|/aVï¿½ PATT$RN <B>RED</B>\nA-A-aBï¿½rTï¿½NG..."
 						unlock_suit()
 						break
 					lock_suit(U,1)//Check for icons.
@@ -474,7 +474,7 @@ ________________________________________________________________________________
 	dat += "</body></html>"
 
 	//Setting the can>resize etc to 0 remove them from the drag bar but still allows the window to be draggable.
-	display_to << browse(dat,"window=spideros;size=400x444;border=1;can_resize=1;can_close=0;can_minimize=0")
+	show_browser(display_to, dat,"window=spideros;size=400x444;border=1;can_resize=1;can_close=0;can_minimize=0")
 
 //=======//SPIDEROS TOPIC PROC//=======//
 
@@ -487,7 +487,7 @@ ________________________________________________________________________________
 	if(s_control)
 		if(!affecting||U.stat||!s_initialized)//Check to make sure the guy is wearing the suit after clicking and it's on.
 			U << "\red Your suit must be worn and active to use this function."
-			U << browse(null, "window=spideros")//Closes the window.
+			show_browser(U, null, "window=spideros")//Closes the window.
 			return
 
 		if(k_unlock!=7&&href_list["choice"]!="Return")
@@ -499,12 +499,12 @@ ________________________________________________________________________________
 	else
 		if(!affecting||A.stat||!s_initialized||A.loc!=src)
 			A << "\red This function is not available at this time."
-			A << browse(null, "window=spideros")//Closes the window.
+			show_browser(A, null, "window=spideros")//Closes the window.
 			return
 
 	switch(href_list["choice"])
 		if("Close")
-			display_to << browse(null, "window=spideros")
+			show_browser(display_to, null, "window=spideros")
 			return
 		if("Refresh")//Refresh, goes to the end of the proc.
 		if("Return")//Return
@@ -527,7 +527,7 @@ ________________________________________________________________________________
 			var/t = input(U, "Please enter untraceable message.") as text
 			t = copytext(sanitize(t), 1, MAX_MESSAGE_LEN)
 			if(!t||U.stat||U.wear_suit!=src||!s_initialized)//Wow, another one of these. Man...
-				display_to << browse(null, "window=spideros")
+				show_browser(display_to, null, "window=spideros")
 				return
 			if(isnull(P)||P.toff)//So it doesn't freak out if the object no-longer exists.
 				display_to << "\red Error: unable to deliver message."
@@ -598,7 +598,7 @@ ________________________________________________________________________________
 					else
 						U << "\red <b>ERROR<b>: \black Unable to initiate mode."
 				else
-					U << browse(null, "window=spideros")
+					show_browser(U, null, "window=spideros")
 					s_busy = 0
 					return
 			else
@@ -651,7 +651,7 @@ ________________________________________________________________________________
 		if("Purge AI")
 			var/confirm = alert("Are you sure you want to purge the AI? This cannot be undone once started.", "Confirm purge", "Yes", "No")
 			if(U.stat||U.wear_suit!=src||!s_initialized)
-				U << browse(null, "window=spideros")
+				show_browser(U, null, "window=spideros")
 				return
 			if(confirm == "Yes"&&AI)
 				if(A.laws.zeroth)//Gives a few seconds to re-upload the AI somewhere before it takes full control.
@@ -661,24 +661,24 @@ ________________________________________________________________________________
 							switch(i)
 								if(0)
 									A << "\red <b>WARNING</b>: \black purge procedure detected. \nNow hacking host..."
-									U << "\red <b>WARNING</b>: HACKING AT††TEMP† IN PR0GRESs!"
+									U << "\red <b>WARNING</b>: HACKING ATï¿½ï¿½TEMPï¿½ IN PR0GRESs!"
 									spideros = 0
 									k_unlock = 0
-									U << browse(null, "window=spideros")
+									show_browser(U, null, "window=spideros")
 								if(1)
 									A << "Disconnecting neural interface..."
-									U << "\red <b>WAR†NING</b>: þR†O0†GrÈ--S 2&3%"
+									U << "\red <b>WARï¿½NING</b>: ï¿½Rï¿½O0ï¿½Grï¿½--S 2&3%"
 								if(2)
 									A << "Shutting down external protocol..."
-									U << "\red <b>WARNING</b>: PþþþþRÖ†GrÈ5S 677^%"
+									U << "\red <b>WARNING</b>: Pï¿½ï¿½ï¿½ï¿½RÖ†Grï¿½5S 677^%"
 									cancel_stealth()
 								if(3)
 									A << "Connecting to kernel..."
-									U << "\red <b>WARNING</b>: ÈR†rÖR_404"
+									U << "\red <b>WARNING</b>: ï¿½Rï¿½rï¿½R_404"
 									A.control_disabled = 0
 								if(4)
 									A << "Connection established and secured. Menu updated."
-									U << "\red <b>WÄr#nING</b>: #%@!!WÈ†|_4þ54@ \nUnÄB88l3 TÖ LÖ-†o-LÖCaT2 ##$!ÈRNÈ0..%.."
+									U << "\red <b>Wï¿½r#nING</b>: #%@!!WÈ†|_4ï¿½54@ \nUnï¿½B88l3 Tï¿½ Lï¿½-ï¿½o-Lï¿½CaT2 ##$!ï¿½RNï¿½0..%.."
 									grant_AI_verbs()
 									return
 							sleep(s_delay)
@@ -784,7 +784,7 @@ ________________________________________________________________________________
 	set category = "AI Ninja Equip"
 	set src = usr.loc
 
-	AI << browse(null, "window=spideros")//Close window
+	show_browser(AI, null, "window=spideros")//Close window
 	AI << "You have seized your hacking attempt. [affecting.real_name] has regained control."
 	affecting << "<b>UPDATE</b>: [AI.real_name] has ceased hacking attempt. All systems clear."
 
@@ -923,7 +923,7 @@ ________________________________________________________________________________
 			U << "There are <B>[s_bombs]</B> smoke bombs remaining."
 			U << "There are <B>[a_boost]</B> adrenaline boosters remaining."
 		else
-			U <<  "ÈrrÖR Ða†Ða†Ä No-†-† fÖÚNÐ 3RRÖr"
+			U <<  "ï¿½rrï¿½R ï¿½aï¿½ï¿½aï¿½ï¿½ No-ï¿½-ï¿½ fï¿½ï¿½Nï¿½ 3RRï¿½r"
 
 /*
 ===================================================================================

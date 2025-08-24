@@ -111,7 +111,7 @@
 
 
 	dat += "</body>"
-	user << browse(dat, "window=message;size=500x700")
+	show_browser(user, dat, "window=message;size=500x700")
 	onclose(user, "message")
 	return
 

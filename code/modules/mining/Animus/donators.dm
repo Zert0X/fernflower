@@ -215,7 +215,7 @@
 				dat += "Make youself cat: <A href='?src=\ref[src];special=black catman'>click</A><br>"
 
 
-	usr << browse(dat, "window=donatorpanel;size=250x400")
+	show_browser(usr, dat, "window=donatorpanel;size=250x400")
 
 
 

@@ -167,7 +167,7 @@
 			user << "\red Attach a plasma tank first!"
 			return
 		var/dat = text("<TT><B>Flamethrower (<A HREF='?src=\ref[src];light=1'>[lit ? "<font color='red'>Lit</font>" : "Unlit"]</a>)</B><BR>\n Tank Pressure: [src.ptank.air_contents.return_pressure()]<BR>\nAmount to throw: <A HREF='?src=\ref[src];amount=-100'>-</A> <A HREF='?src=\ref[src];amount=-10'>-</A> <A HREF='?src=\ref[src];amount=-1'>-</A> [src.throw_amount] <A HREF='?src=\ref[src];amount=1'>+</A> <A HREF='?src=\ref[src];amount=10'>+</A> <A HREF='?src=\ref[src];amount=100'>+</A><BR>\n<A HREF='?src=\ref[src];remove=1'>Remove plasmatank</A> - <A HREF='?src=\ref[src];close=1'>Close</A></TT>")
-		user << browse(dat, "window=flamethrower;size=600x300")
+		show_browser(user, dat, "window=flamethrower;size=600x300")
 		onclose(user, "flamethrower")
 		return
 
@@ -175,7 +175,7 @@
 	Topic(href,href_list[])
 		if (href_list["close"])
 			usr.machine = null
-			usr << browse(null, "window=flamethrower")
+			show_browser(usr, null, "window=flamethrower")
 			return
 		if(usr.stat || usr.restrained() || usr.lying)	return
 		usr.machine = src
@@ -204,7 +204,7 @@
 			force = 3
 			damtype = "brute"
 			usr.machine = null
-			usr << browse(null, "window=flamethrower")
+			show_browser(usr, null, "window=flamethrower")
 		for(var/mob/M in viewers(1, src.loc))
 			if ((M.client && M.machine == src))
 				src.attack_self(M)

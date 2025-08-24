@@ -341,7 +341,7 @@
 				dat += "<br>"
 			dat += "<A href='?src=\ref[src];nextTag=[i]'>[locationList[i]]</A>"
 			dat += "<br>"
-		user << browse(dat, "window=destTagScreen")
+		show_browser(user, dat, "window=destTagScreen")
 		onclose(user, "destTagScreen")
 		return
 

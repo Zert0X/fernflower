@@ -126,7 +126,7 @@ Power regulator: <A href='?src=\ref[src];volume_adj=-1000'>-</A> <A href='?src=\
 <A href='?src=\ref[user];mach_close=scrubber'>Close</A><BR>
 "}
 
-	user << browse(output_text, "window=scrubber;size=600x300")
+	show_browser(user, output_text, "window=scrubber;size=600x300")
 	onclose(user, "scrubber")
 	return
 
@@ -154,6 +154,6 @@ Power regulator: <A href='?src=\ref[src];volume_adj=-1000'>-</A> <A href='?src=\
 		src.add_fingerprint(usr)
 		update_icon()
 	else
-		usr << browse(null, "window=scrubber")
+		show_browser(usr, null, "window=scrubber")
 		return
 	return

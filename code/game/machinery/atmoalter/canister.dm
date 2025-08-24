@@ -214,7 +214,7 @@ Release Pressure: <A href='?src=\ref[src];pressure_adj=-1000'>-</A> <A href='?sr
 <A href='?src=\ref[user];mach_close=canister'>Close</A><BR>
 "}
 
-	user << browse("<html><head><title>[src]</title></head><body>[output_text]</body></html>", "window=canister;size=600x300")
+	show_browser(user, "<html><head><title>[src]</title></head><body>[output_text]</body></html>", "window=canister;size=600x300")
 	onclose(user, "canister")
 	return
 
@@ -270,7 +270,7 @@ Release Pressure: <A href='?src=\ref[src];pressure_adj=-1000'>-</A> <A href='?sr
 		src.add_fingerprint(usr)
 		update_icon()
 	else
-		usr << browse(null, "window=canister")
+		show_browser(usr, null, "window=canister")
 		return
 	return
 

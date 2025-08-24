@@ -288,7 +288,7 @@
 			cache_imgs(user)
 			if(!pages || pages.len == 0) // For instance, when the book is spawned by admisn
 				src.gen_pages()
-			user << browse("<html><head><title>[title]</title></head>" \
+			show_browser(user, "<html><head><title>[title]</title></head>" \
 				+ "<body style='overflow:hidden'>" \
 				+ "<div style='color:#666;font-style:italic;padding-bottom:1em;height:7.5%'><div style='float:left'>[title]</div><div style='float:right'>[author]</div></div>" \
 				+ "<div style='clear:both;overflow:auto;height:[pages.len > 1 ? "85" : "82.5"]%'>[pages[cur_page]]</div>" \
@@ -533,7 +533,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 					dat += "<tr><td>[book.author]</td><td>[book.title]</td><td>[book.category]</td><td>[book.id]</td></tr>"
 				dat += "</table><BR>"
 			dat += "<A href='?src=\ref[src];back=1'>\[Go Back\]</A><BR>"
-	user << browse(dat, "window=publiclibrary")
+	show_browser(user, dat, "window=publiclibrary")
 	onclose(user, "publiclibrary")
 
 
@@ -713,7 +713,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			dat += "<A href='?src=\ref[src];switchscreen=0'>No.</A><BR>"
 
 	//dat += "<A HREF='?src=\ref[user];mach_close=library'>Close</A><br><br>"
-	user << browse(dat, "window=library")
+	show_browser(user, dat, "window=library")
 	onclose(user, "library")
 
 /obj/machinery/librarycomp/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -955,7 +955,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		dat += "       <A href='?src=\ref[src];clear=1'>\[Clear Memory\]</A><BR><BR><A href='?src=\ref[src];eject=1'>\[Remove Book\]</A>"
 	else
 		dat += "<BR>"
-	user << browse(dat, "window=scanner")
+	show_browser(user, dat, "window=scanner")
 	onclose(user, "scanner")
 
 /obj/machinery/libraryscanner/Topic(href, href_list)
@@ -1120,7 +1120,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			dat += "<hr><A href='?src=\ref[src];print=1'>Print</a>"
 
 	dat += "</TT>"
-	user << browse(dat, "window=bookbinder")
+	show_browser(user, dat, "window=bookbinder")
 	onclose(user, "bookbinder")
 
 
@@ -1208,7 +1208,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	if(href_list["p_preview"])
 		var/i = text2num(href_list["p_preview"])
 		var/dat = template.pages[i]
-		usr << browse(dat, "window=bookbinder_preview;size=600x500")
+		show_browser(usr, dat, "window=bookbinder_preview;size=600x500")
 		onclose(usr, "bookbinder_preview")
 
 	if(href_list["i_view"])

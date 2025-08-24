@@ -46,7 +46,7 @@
 	Topic(href, href_list)
 		..()
 		if( href_list["close"] )
-			usr << browse(null, "window=crewcomp")
+			show_browser(usr, null, "window=crewcomp")
 			usr.machine = null
 			return
 		if(href_list["update"])
@@ -59,7 +59,7 @@
 			if( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 				if(!istype(user, /mob/living/silicon))
 					user.machine = null
-					user << browse(null, "window=powcomp")
+					show_browser(user, null, "window=powcomp")
 					return
 			user.machine = src
 			src.scan()
@@ -89,7 +89,7 @@
 								t += "<td>[H.stat > 1 ? "<font color=red>Deceased</font>" : "Living"], [dam2] - [dam2] - [dam3] - [dam4]</td><td>[get_area(H)] ([H.x], [H.y])</td></tr>"
 			t += "</table>"
 			t += "</FONT></PRE></TT>"
-			user << browse(t, "window=crewcomp;size=900x600")
+			show_browser(user, t, "window=crewcomp;size=900x600")
 			onclose(user, "crewcomp")
 
 

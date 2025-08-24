@@ -43,7 +43,7 @@
 			updating = 1
 			return
 		if( href_list["close"] )
-			usr << browse(null, "window=core_monitor")
+			show_browser(usr, null, "window=core_monitor")
 			usr.machine = null
 			return
 
@@ -57,7 +57,7 @@
 			if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 				if (!istype(user, /mob/living/silicon))
 					user.machine = null
-					user << browse(null, "window=core_monitor")
+					show_browser(user, null, "window=core_monitor")
 					return
 			var/t = "<B>Reactor Core Primary Monitor</B><BR>"
 			if(core_generator)
@@ -83,5 +83,5 @@
 				t += "<b><font color=red>Core Generator unresponsive</font></b><br>"
 			t += "<hr>"
 			t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-			user << browse(t, "window=core_monitor;size=500x400")
+			show_browser(user, t, "window=core_monitor;size=500x400")
 			user.machine = src

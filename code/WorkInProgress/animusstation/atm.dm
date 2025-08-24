@@ -89,7 +89,7 @@ log transactions
 				dat += "<a href=\"?src=\ref[src]&eca=1\">Eject Inserted Items</a><br/>"
 				dat += "<a href=\"?src=\ref[src]&ins=1\">Convert Inserted Items to Credits</a><br/>"
 				dat += "<a href=\"?src=\ref[src]&lock=1\">Lock ATM</a><br/>"
-			user << browse(dat,"window=atm")
+			show_browser(user, dat,"window=atm")
 			onclose(user,"close")
 	proc
 		withdraw(var/mob/user)
@@ -161,8 +161,8 @@ log transactions
 				card = null
 				accepted = 0
 				usr.machine = null
-				usr << browse(null,"window=atm")
+				show_browser(usr, null,"window=atm")
 			src.updateUsrDialog()
 		else
 			usr.machine = null
-			usr << browse(null,"window=atm")
+			show_browser(usr, null,"window=atm")

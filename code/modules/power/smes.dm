@@ -181,7 +181,7 @@
 	proc/interact(mob/user)
 		if(get_dist(src, user) > 1 && !istype(user, /mob/living/silicon/ai))
 			user.machine = null
-			user << browse(null, "window=smes")
+			show_browser(user, null, "window=smes")
 			return
 
 		user.machine = src
@@ -206,7 +206,7 @@
 		t += "<BR></PRE><HR><A href='?src=\ref[src];close=1'>Close</A>"
 
 		t += "</TT>"
-		user << browse(t, "window=smes;size=460x300")
+		show_browser(user, t, "window=smes;size=460x300")
 		onclose(user, "smes")
 		return
 
@@ -227,7 +227,7 @@
 
 
 			if( href_list["close"] )
-				usr << browse(null, "window=smes")
+				show_browser(usr, null, "window=smes")
 				usr.machine = null
 				return
 
@@ -298,7 +298,7 @@
 			src.updateUsrDialog()
 
 		else
-			usr << browse(null, "window=smes")
+			show_browser(usr, null, "window=smes")
 			usr.machine = null
 		return
 

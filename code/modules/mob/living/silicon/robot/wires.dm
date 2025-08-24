@@ -106,7 +106,7 @@
 			t1 += "<br>"
 		t1 += text("<br>\n[(src.lawupdate ? "The LawSync light is on." : "The LawSync light is off.")]<br>\n[(src.connected_ai ? "The AI link light is on." : "The AI link light is off.")]<br>\n[(src.modlock ? "The Module Lock light is on." : "The Module Lock light is off.")]")
 		t1 += text("<p><a href='?src=\ref[src];close2=1'>Close</a></p>\n")
-		user << browse(t1, "window=borgwires")
+		show_browser(user, t1, "window=borgwires")
 		onclose(user, "borgwires")
 
 /mob/living/silicon/robot/Topic(href, href_list)
@@ -133,6 +133,6 @@
 			else
 				src.pulse(t1)
 		else if (href_list["close2"])
-			usr << browse(null, "window=borgwires")
+			show_browser(usr, null, "window=borgwires")
 			usr.machine = null
 			return

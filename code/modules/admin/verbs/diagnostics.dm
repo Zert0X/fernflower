@@ -19,7 +19,7 @@
 <B># of Mobs:</B> [mobs]<BR>
 "}
 
-		usr << browse(output,"window=generalreport")
+		show_browser(usr, output,"window=generalreport")
 		//feedback_add_details("admin_verb","SGR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /*	air_report()
@@ -62,7 +62,7 @@
 <B>Tile Update:</B> [air_master.tiles_to_update.len]<BR>
 "}
 
-		usr << browse(output,"window=airreport")
+		show_browser(usr, output,"window=airreport")
 		//feedback_add_details("admin_verb","SAR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 	air_status(turf/target as turf)
@@ -149,7 +149,7 @@
 					else
 						output += "&nbsp;&nbsp;&nbsp;&nbsp;[device]<br>"
 
-		usr << browse(output,"window=radioreport")
+		show_browser(usr, output,"window=radioreport")
 		//feedback_add_details("admin_verb","RR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 	reload_admins()
@@ -277,5 +277,5 @@
 
 		for(var/game in tension_master.antagonistmodes)
 			output += "<font size = 2>Points required/Probability for [game]: [tension_master.antagonistmodes[game]]<br></font>"
-		usr << browse(output,"window=tensionreport;size=480x480")
+		show_browser(usr, output,"window=tensionreport;size=480x480")
 		feedback_add_details("admin_verb","STR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

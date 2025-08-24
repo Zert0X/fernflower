@@ -439,10 +439,10 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 						[words[9]] is <a href='byond://?src=\ref[src];number=9;action=change'>[words[words[9]]]</A> <A href='byond://?src=\ref[src];number=9;action=clear'>Clear</A><BR>
 						[words[10]] is <a href='byond://?src=\ref[src];number=10;action=change'>[words[words[10]]]</A> <A href='byond://?src=\ref[src];number=10;action=clear'>Clear</A><BR>
 						"}
-			usr << browse("[notedat]", "window=notes")
+			show_browser(usr, "[notedat]", "window=notes")
 //		call(/obj/item/weapon/tome/proc/edit_notes)()
 		else
-			usr << browse(null, "window=notes")
+			show_browser(usr, null, "window=notes")
 			return
 
 
@@ -462,7 +462,7 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 //			[words[10]] is <a href='byond://?src=\ref[src];number=10;action=change'>[words[words[10]]]</A> <A href='byond://?src=\ref[src];number=10;action=clear'>Clear</A><BR>
 //					"}
 //		usr << "whatev"
-//		usr << browse(null, "window=tank")
+//		show_browser(usr, null, "window=tank")
 
 	attack(mob/living/M as mob, mob/living/user as mob)
 		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had the [name] used on him by [user.name] ([user.ckey])</font>")
@@ -527,7 +527,7 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 					if("Read it")
 						if(usr.equipped() != src)
 							return
-						user << browse("[tomedat]", "window=Arcane Tome")
+						show_browser(user, "[tomedat]", "window=Arcane Tome")
 						return
 					if("Notes")
 						if(usr.equipped() != src)
@@ -546,7 +546,7 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 					[words[10]] is <a href='byond://?src=\ref[src];number=10;action=change'>[words[words[10]]]</A> <A href='byond://?src=\ref[src];number=10;action=clear'>Clear</A><BR>
 					"}
 //						call(/obj/item/weapon/tome/proc/edit_notes)()
-						user << browse("[notedat]", "window=notes")
+						show_browser(user, "[notedat]", "window=notes")
 						return
 			if(usr.equipped() != src)
 				return
@@ -811,4 +811,4 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 		view_scrap(usr)
 
 	proc/view_scrap(var/viewer)
-		viewer << browse(data)
+		show_browser(viewer, data, "")

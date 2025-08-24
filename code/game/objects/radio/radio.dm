@@ -103,7 +103,7 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 	for (var/ch_name in channels)
 		dat+=text_sec_channel(ch_name, channels[ch_name])
 	dat+={"[text_wires()]</TT></body></html>"}
-	user << browse(dat, "window=radio")
+	show_browser(user, dat, "window=radio")
 	onclose(user, "radio")
 	return
 
@@ -152,7 +152,7 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 		return
 
 	if (!(issilicon(usr) || (usr.contents.Find(src) || ( in_range(src, usr) && istype(loc, /turf) ))))
-		usr << browse(null, "window=radio")
+		show_browser(usr, null, "window=radio")
 		return
 	usr.machine = src
 	if (href_list["track"])
@@ -187,7 +187,7 @@ var/GLOBAL_RADIO_TYPE = 1 // radio type to use
 
 		if (traitor_frequency && frequency == traitor_frequency)
 			usr.machine = null
-			usr << browse(null, "window=radio")
+			show_browser(usr, null, "window=radio")
 			// now transform the regular radio, into a (disguised)syndicate uplink!
 			var/obj/item/device/uplink/radio/T = traitorradio
 			var/obj/item/device/radio/R = src

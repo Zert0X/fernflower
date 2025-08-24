@@ -171,7 +171,7 @@ rcd light flash thingy on matter drain
 			dat += "<A href='byond://?src=\ref[src];[module.mod_pick_name]=1'>[module.module_name]</A> (15)<BR>"
 		dat += "<HR>"
 
-	user << browse(dat, "window=modpicker")
+	show_browser(user, dat, "window=modpicker")
 	onclose(user, "modpicker")
 	return
 

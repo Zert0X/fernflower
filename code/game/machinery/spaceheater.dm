@@ -68,7 +68,7 @@
 			user.visible_message("\blue [user] [open ? "opens" : "closes"] the hatch on the [src].", "\blue You [open ? "open" : "close"] the hatch on the [src].")
 			update_icon()
 			if(!open && user.machine == src)
-				user << browse(null, "window=spaceheater")
+				show_browser(user, null, "window=spaceheater")
 				user.machine = null
 		else
 			..()
@@ -95,7 +95,7 @@
 			dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><BR>"
 
 			user.machine = src
-			user << browse("<HEAD><TITLE>Space Heater Control Panel</TITLE></HEAD><TT>[dat]</TT>", "window=spaceheater")
+			show_browser(user, "<HEAD><TITLE>Space Heater Control Panel</TITLE></HEAD><TT>[dat]</TT>", "window=spaceheater")
 			onclose(user, "spaceheater")
 
 
@@ -151,7 +151,7 @@
 
 			updateDialog()
 		else
-			usr << browse(null, "window=spaceheater")
+			show_browser(usr, null, "window=spaceheater")
 			usr.machine = null
 		return
 

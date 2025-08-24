@@ -24,7 +24,7 @@
 	Topic(href, href_list)
 		..()
 		if( href_list["close"] )
-			usr << browse(null, "window=gyrotron_controller")
+			show_browser(usr, null, "window=gyrotron_controller")
 			usr.machine = null
 			return
 		if( href_list["target"] )
@@ -42,7 +42,7 @@
 			if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 				if (!istype(user, /mob/living/silicon))
 					user.machine = null
-					user << browse(null, "window=gyrotron_controller")
+					show_browser(user, null, "window=gyrotron_controller")
 					return
 			var/t = "<B>Gyrotron Remote Control Console</B><BR>"
 			t += "<hr>"
@@ -98,5 +98,5 @@
 			t += "</table>"
 			*/
 			t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-			user << browse(t, "window=gyrotron_controller;size=500x400")
+			show_browser(user, t, "window=gyrotron_controller;size=500x400")
 			user.machine = src

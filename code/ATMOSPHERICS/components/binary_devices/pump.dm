@@ -116,7 +116,7 @@ obj/machinery/atmospherics/binary/pump
 						[round(target_pressure,0.1)]kPa | <a href='?src=\ref[src];set_press=1'>Change</a>
 						"}
 
-			user << browse("<HEAD><TITLE>[src.name] control</TITLE></HEAD><TT>[dat]</TT>", "window=atmo_pump")
+			show_browser(user, "<HEAD><TITLE>[src.name] control</TITLE></HEAD><TT>[dat]</TT>", "window=atmo_pump")
 			onclose(user, "atmo_pump")
 
 	initialize()

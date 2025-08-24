@@ -15,7 +15,7 @@
 	attack_hand(var/mob/user as mob)
 		src.add_fingerprint(usr)
 		var/dat = text("<center>Area Air Control:<br> <b><A href='?src=\ref[src];scrubbers=[1]'>Turn area scrubbers [scrubber_state?"off":"on"]</A></b></center>")
-		user << browse("[dat]", "window=miningshuttle;size=200x100")
+		show_browser(user, "[dat]", "window=miningshuttle;size=200x100")
 
 	Topic(href, href_list)
 		if(..())

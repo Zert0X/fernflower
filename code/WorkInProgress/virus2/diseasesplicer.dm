@@ -109,7 +109,7 @@
 		else
 			dat += "<BR>Please insert dish."
 
-	user << browse(dat, "window=computer;size=400x500")
+	show_browser(user, dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
 

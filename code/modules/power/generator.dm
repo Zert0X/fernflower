@@ -103,7 +103,7 @@
 /obj/machinery/power/generator/proc/interact(mob/user)
 	if ( (get_dist(src, user) > 1 ) && (!istype(user, /mob/living/silicon/ai)))
 		user.machine = null
-		user << browse(null, "window=teg")
+		show_browser(user, null, "window=teg")
 		return
 
 	user.machine = src
@@ -133,7 +133,7 @@
 	t += "<BR><HR><A href='?src=\ref[src];close=1'>Close</A>"
 
 	t += "</PRE>"
-	user << browse(t, "window=teg;size=460x300")
+	show_browser(user, t, "window=teg;size=460x300")
 	onclose(user, "teg")
 	return 1
 
@@ -141,7 +141,7 @@
 	..()
 
 	if( href_list["close"] )
-		usr << browse(null, "window=teg")
+		show_browser(usr, null, "window=teg")
 		usr.machine = null
 		return 0
 

@@ -119,7 +119,7 @@
 	if (!recipes)
 		return
 	if (!src || amount<=0)
-		user << browse(null, "window=stack")
+		show_browser(user, null, "window=stack")
 	user.machine = src //for correct work of onclose
 	var/t1 = text("<HTML><HEAD><title>Constructions from []</title></HEAD><body><TT>Amount Left: []<br>", src, src.amount)
 	for(var/i=1;i<=recipes.len;i++)
@@ -160,7 +160,7 @@
 				t1 += " <A href='?src=\ref[src];make=[i];multiplier=[max_multiplier]'>[max_multiplier*R.res_amount]x</A>"
 
 	t1 += "</TT></body></HTML>"
-	user << browse(t1, "window=stack")
+	show_browser(user, t1, "window=stack")
 	onclose(user, "stack")
 	return
 
@@ -220,5 +220,5 @@
 
 /obj/item/stack/Del()
 	if (src && usr && usr.machine==src)
-		usr << browse(null, "window=stack")
+		show_browser(usr, null, "window=stack")
 	..()

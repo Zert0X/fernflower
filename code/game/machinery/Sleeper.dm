@@ -76,7 +76,7 @@
 		else
 			dat += "The sleeper is empty."
 		dat += text("<BR><BR><A href='?src=\ref[];mach_close=sleeper'>Close</A>", user)
-		user << browse(dat, "window=sleeper;size=400x500")
+		show_browser(user, dat, "window=sleeper;size=400x500")
 		onclose(user, "sleeper")
 	return
 

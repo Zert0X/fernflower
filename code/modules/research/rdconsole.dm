@@ -872,5 +872,5 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				if(linked_imprinter.diamond_amount >= 10000) dat += "<A href='?src=\ref[src];imprinter_ejectsheet=diamond;imprinter_ejectsheet_amt=5'>(5 Sheets)</A> "
 				if(linked_imprinter.diamond_amount >= 2000) dat += "<A href='?src=\ref[src];imprinter_ejectsheet=diamond;imprinter_ejectsheet_amt=50'>(Max Sheets)</A>"
 
-		user << browse("<TITLE>Research and Development Console</TITLE><HR>[dat]", "window=rdconsole;size=575x400")
+		show_browser(user, "<TITLE>Research and Development Console</TITLE><HR>[dat]", "window=rdconsole;size=575x400")
 		onclose(user, "rdconsole")

@@ -993,7 +993,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 // e.g. canisters, timers, etc.
 //
 // windowid should be the specified window name
-// e.g. code is	: user << browse(text, "window=fred")
+// e.g. code is	: show_browser(user, text, "window=fred")
 // then use 	: onclose(user, "fred")
 //
 // Optionally, specify the "ref" parameter as the controlled atom (usually src)
@@ -1878,5 +1878,3 @@ proc/get_mob_with_client_list()
 			return EAST
 		if(NORTHWEST)
 			return SOUTHEAST
-
-#define show_browser(target, content, title)  to_target(target, browse(istext(content) ? "<!DOCTYPE html>[content]" : content, title))

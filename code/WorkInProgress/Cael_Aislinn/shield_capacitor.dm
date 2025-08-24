@@ -126,7 +126,7 @@
 /obj/machinery/shield_capacitor/Topic(href, href_list[])
 	..()
 	if( href_list["close"] )
-		usr << browse(null, "window=shield_capacitor")
+		show_browser(usr, null, "window=shield_capacitor")
 		usr.machine = null
 		return
 	if( href_list["toggle"] )
@@ -148,7 +148,7 @@
 	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 		if (!istype(user, /mob/living/silicon))
 			user.machine = null
-			user << browse(null, "window=shield_capacitor")
+			show_browser(user, null, "window=shield_capacitor")
 			return
 	var/t = "<B>Shield Capacitor Control Console</B><BR>"
 	t += "[target_generator ? "<font color=green>Shield generator connected.</font>" : "<font color=red>Unable to locate shield generator!</font>"]<br>"
@@ -158,5 +158,5 @@
 	t += "Capacitor charge rate (approx): <a href='?src=\ref[src];charge_rate=[-max_charge_rate]'>\[min\]</a> <a href='?src=\ref[src];charge_rate=-1000'>\[--\]</a> <a href='?src=\ref[src];charge_rate=-100'>\[-\]</a>[charge_rate] Watts/sec <a href='?src=\ref[src];charge_rate=100'>\[+\]</a> <a href='?src=\ref[src];charge_rate=1000'>\[++\]</a> <a href='?src=\ref[src];charge_rate=[max_charge_rate]'>\[max\]</a><br>"
 	t += "<hr>"
 	t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-	user << browse(t, "window=shield_capacitor;size=500x800")
+	show_browser(user, t, "window=shield_capacitor;size=500x800")
 	user.machine = src

@@ -282,7 +282,7 @@
 		if ( (get_dist(src, user) > 1 ))
 			if (!istype(user, /mob/living/silicon/ai))
 				user.machine = null
-				user << browse(null, "window=solcon")
+				show_browser(user, null, "window=solcon")
 				return
 
 		add_fingerprint(user)
@@ -303,18 +303,18 @@
 
 		t += "Tracking Rate: [rate_control(src,"tdir","[trackrate] deg/h ([trackrate<0 ? "CCW" : "CW"])",5,30,180)]<BR><BR>"
 		t += "<A href='?src=\ref[src];close=1'>Close</A></TT>"
-		user << browse(t, "window=solcon")
+		show_browser(user, t, "window=solcon")
 		onclose(user, "solcon")
 		return
 
 
 	Topic(href, href_list)
 		if(..())
-			usr << browse(null, "window=solcon")
+			show_browser(usr, null, "window=solcon")
 			usr.machine = null
 			return
 		if(href_list["close"] )
-			usr << browse(null, "window=solcon")
+			show_browser(usr, null, "window=solcon")
 			usr.machine = null
 			return
 

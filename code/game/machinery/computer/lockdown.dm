@@ -67,7 +67,7 @@
 		if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 			if (!istype(user, /mob/living/silicon))
 				user.machine = null
-				user << browse(null, "window=lockdown")
+				show_browser(user, null, "window=lockdown")
 				return
 
 		var/t = "<B>Lockdown Control</B><BR>"
@@ -101,13 +101,13 @@
 		if(empty)
 			t += "\red No networks connected.<br>"
 		t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-		user << browse(t, "window=lockdown;size=500x800")
+		show_browser(user, t, "window=lockdown;size=500x800")
 		onclose(user, "lockdown")
 
 	Topic(href, href_list)
 		..()
 		if( href_list["close"] )
-			usr << browse(null, "window=lockdown")
+			show_browser(usr, null, "window=lockdown")
 			usr.machine = null
 			return
 

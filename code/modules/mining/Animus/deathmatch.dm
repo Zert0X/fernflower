@@ -109,7 +109,7 @@
 						dat += "============<br>"
 				else
 					dat += "Error: no teams!<br>"
-				usr << browse(dat, "window=animus_dm")
+				show_browser(usr, dat, "window=animus_dm")
 			if("setup_teamname")
 				var/newname = input("Input new team name:","Team name") as text|null
 				if(newname)
@@ -150,7 +150,7 @@
 						dat += "<A HREF='?src=\ref[src];command=players_add;rpage=players;team=[i]'>Add player</A><br>"
 				else
 					dat += "Error: no teams<br>"
-				usr << browse(dat, "window=animus_dm")
+				show_browser(usr, dat, "window=animus_dm")
 			if("players_remove")
 				if(alert("Are you sure to remove [href_list["player"]] from deathmatch?","Remove player","Yes","No")=="Yes")
 					removeplayer(href_list["player"])
@@ -170,14 +170,14 @@
 			if("control")
 				dat += "<b>Control</b> (<A HREF='?src=\ref[src];command=control'>refresh</A>)<br>"
 				dat += "<A HREF='?src=\ref[src];command=control_respawn'>Respawn all</A><br>"
-				usr << browse(dat, "window=animus_dm")
+				show_browser(usr, dat, "window=animus_dm")
 			if("control_respawn")
 				logmessage("Control: respawn all.")
 				for(var/i in players)
 					respawnplayer(i)
 			if("log")
 				dat += DMlog
-				usr << browse(dat, "window=animus_dm")
+				show_browser(usr, dat, "window=animus_dm")
 			if("fullstop")
 				if(alert("Are you sure to stop battle?","Stop deathmatch","Yes","No")=="Yes")
 					logmessage("<b>Deathmatch fully stopped</b>, all players returned to thier ghosts.")
@@ -231,4 +231,4 @@
 	dat += "<br><A HREF='?src=\ref[deathmatch];command=fullstop'>Stop deathmatch</A> (return all players to thier original ghosts)<br>"
 
 
-	usr << browse(dat, "window=animus_dm")
+	show_browser(usr, dat, "window=animus_dm")

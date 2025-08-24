@@ -638,7 +638,7 @@ Code:
 
 	if (!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 		usr.machine = null
-		usr << browse(null, "window=pda")
+		show_browser(usr, null, "window=pda")
 		return
 
 	switch(href_list["choice"])

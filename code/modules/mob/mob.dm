@@ -215,7 +215,7 @@
 	<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>
 	<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>
 	<BR>"}
-	user << browse(dat, text("window=mob[];size=325x500", name))
+	show_browser(user, dat, text("window=mob[];size=325x500", name))
 	onclose(user, "mob[name]")
 	return
 
@@ -288,7 +288,7 @@
 	for(var/t in typesof(/area))
 		master += text("[]\n", t)
 		//Foreach goto(26)
-	src << browse(master)
+	show_browser(src, master)
 	return
 */
 
@@ -321,7 +321,7 @@
 /*
 /mob/verb/help()
 	set name = "Help"
-	src << browse('help.html', "window=help")
+	show_browser(src, 'help.html', "window=help")
 	return
 */
 
@@ -329,7 +329,7 @@
 	if(href_list["mach_close"])
 		var/t1 = text("window=[href_list["mach_close"]]")
 		machine = null
-		src << browse(null, t1)
+		show_browser(src, null, t1)
 
 	if(href_list["teleto"])
 		client.jumptoturf(locate(href_list["teleto"]))
@@ -370,7 +370,7 @@
 					if(K.client && K.client.holder && K.key != usr.key && K.key != M.key)
 						K << "<b><font color='blue'>PM: [key_name(usr, K)]->[key_name(M, K)]:</b> \blue [t]</font>"
 	if(href_list["flavor_more"])
-		usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, dd_replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
+		show_browser(usr, text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, dd_replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
 		onclose(usr, "[name]")
 	if(href_list["flavor_change"])
 		update_flavor_text()

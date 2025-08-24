@@ -72,7 +72,7 @@ var/global/list/autolathe_recipes_hidden = list( \
 			dat += text("The red light is [src.disabled ? "off" : "on"].<BR>")
 			dat += text("The green light is [src.shocked ? "off" : "on"].<BR>")
 			dat += text("The blue light is [src.hacked ? "off" : "on"].<BR>")
-			user << browse("<HTML><HEAD><TITLE>Autolathe Hacking</TITLE></HEAD><BODY>[dat]</BODY></HTML>","window=autolathe_hack")
+			show_browser(user, "<HTML><HEAD><TITLE>Autolathe Hacking</TITLE></HEAD><BODY>[dat]</BODY></HTML>","window=autolathe_hack")
 			onclose(user, "autolathe_hack")
 
 		regular_win(mob/user as mob)
@@ -111,7 +111,7 @@ var/global/list/autolathe_recipes_hidden = list( \
 					if (max_multiplier>1)
 						dat += " <A href='?src=\ref[src];make=\ref[t];multiplier=[max_multiplier]'>x[max_multiplier]</A>"
 				dat += "<br>"
-			user << browse("<HTML><HEAD><TITLE>Autolathe Control Panel</TITLE></HEAD><BODY><TT>[dat]</TT></BODY></HTML>", "window=autolathe_regular")
+			show_browser(user, "<HTML><HEAD><TITLE>Autolathe Control Panel</TITLE></HEAD><BODY><TT>[dat]</TT></BODY></HTML>", "window=autolathe_regular")
 			onclose(user, "autolathe_regular")
 
 		interact(mob/user as mob)

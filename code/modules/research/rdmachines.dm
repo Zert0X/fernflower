@@ -62,7 +62,7 @@
 			dat += text("The red light is [src.disabled ? "off" : "on"].<BR>")
 			dat += text("The green light is [src.shocked ? "off" : "on"].<BR>")
 			dat += text("The blue light is [src.hacked ? "off" : "on"].<BR>")
-			user << browse("<HTML><HEAD><TITLE>[src.name] Hacking</TITLE></HEAD><BODY>[dat]</BODY></HTML>","window=hack_win")
+			show_browser(user, "<HTML><HEAD><TITLE>[src.name] Hacking</TITLE></HEAD><BODY>[dat]</BODY></HTML>","window=hack_win")
 		return
 
 

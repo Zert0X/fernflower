@@ -28,7 +28,7 @@
 /obj/item/device/infra_sensor/attack_self(mob/user as mob)
 	user.machine = src
 	var/dat = text("<TT><B>Infrared Sensor</B><BR>\n<B>Passive Emitter</B>: []<BR>\n<B>Active Emitter</B>: <A href='?src=\ref[];active=0'>Burst Fire</A>\n</TT>", (src.passive ? text("<A href='?src=\ref[];passive=0'>On</A>", src) : text("<A href='?src=\ref[];passive=1'>Off</A>", src)), src)
-	user << browse(dat, "window=infra_sensor")
+	show_browser(user, dat, "window=infra_sensor")
 	onclose(user, "infra_sensor")
 	return
 
@@ -62,7 +62,7 @@
 						src.attack_self(M)
 		src.add_fingerprint(usr)
 	else
-		usr << browse(null, "window=infra_sensor")
+		show_browser(usr, null, "window=infra_sensor")
 		onclose(usr, "infra_sensor")
 		return
 	return

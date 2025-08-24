@@ -307,7 +307,7 @@
 
 
 		user.machine = src
-		user << browse(dat, "window=disposal;size=360x170")
+		show_browser(user, dat, "window=disposal;size=360x170")
 		onclose(user, "disposal")
 
 	// handle machine interaction
@@ -332,7 +332,7 @@
 
 			if(href_list["close"])
 				usr.machine = null
-				usr << browse(null, "window=disposal")
+				show_browser(usr, null, "window=disposal")
 				return
 
 			if(href_list["pump"])
@@ -349,7 +349,7 @@
 			if(href_list["eject"])
 				eject()
 		else
-			usr << browse(null, "window=disposal")
+			show_browser(usr, null, "window=disposal")
 			usr.machine = null
 			return
 		return
@@ -1145,7 +1145,7 @@
 				for(var/i = 1, i <= backType.len, i++)
 					dat += " <A href='?src=\ref[src];choice=selectBack'>[backType[i]]</A>,"
 				dat += "  <A href='?src=\ref[src];choice=toggleBack'>Toggle</A><br>"
-			user << browse(dat, "window=sortScreen")
+			show_browser(user, dat, "window=sortScreen")
 			onclose(user, "sortScreen")
 			return
 

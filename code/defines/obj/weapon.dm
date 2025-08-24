@@ -322,7 +322,7 @@
 	dat += "<BR><A href='?src=\ref[src];split=1'>split</a>"
 
 
-	user << browse(dat, "window=computer;size=400x500")
+	show_browser(user, dat, "window=computer;size=400x500")
 
 	onclose(user, "computer")
 	return

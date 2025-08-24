@@ -101,7 +101,7 @@ Target Pressure: <A href='?src=\ref[src];pressure_adj=-1000'>-</A> <A href='?src
 <A href='?src=\ref[user];mach_close=pump'>Close</A><BR>
 "}
 
-	user << browse(output_text, "window=pump;size=600x300")
+	show_browser(user, output_text, "window=pump;size=600x300")
 	onclose(user, "pump")
 
 	return
@@ -133,6 +133,6 @@ Target Pressure: <A href='?src=\ref[src];pressure_adj=-1000'>-</A> <A href='?src
 		src.add_fingerprint(usr)
 		update_icon()
 	else
-		usr << browse(null, "window=pump")
+		show_browser(usr, null, "window=pump")
 		return
 	return

@@ -221,7 +221,7 @@
 		dat += "<BR>\n"
 
 	viewalerts = 1
-	src << browse(dat, "window=robotalerts&can_close=0")
+	show_browser(src, dat, "window=robotalerts&can_close=0")
 
 /mob/living/silicon/robot/proc/ai_roster()
 	set category = "Robot Commands"
@@ -234,7 +234,7 @@
 
 	dat += "</body></html>"
 
-	src << browse(dat, "window=airoster")
+	show_browser(src, dat, "window=airoster")
 	onclose(src, "airoster")
 
 /mob/living/silicon/robot/blob_act()
@@ -884,7 +884,7 @@
 		else
 			dat += text("[obj]: \[<A HREF=?src=\ref[src];act=\ref[obj]>Activate</A> | <B>Deactivated</B>\]<BR>")
 */
-	src << browse(dat, "window=robotmod&can_close=0")
+	show_browser(src, dat, "window=robotmod&can_close=0")
 
 
 /mob/living/silicon/robot/Topic(href, href_list)
@@ -892,7 +892,7 @@
 	if (href_list["mach_close"])
 		var/t1 = text("window=[href_list["mach_close"]]")
 		machine = null
-		src << browse(null, t1)
+		show_browser(src, null, t1)
 		return
 
 	if (href_list["mod"])
@@ -1086,7 +1086,7 @@ Frequency:
 	for (var/ch_name in channels)
 		dat+=src.radio.text_sec_channel(ch_name, channels[ch_name])
 	dat+={"</TT>"}
-	src << browse(dat, "window=radio")
+	show_browser(src, dat, "window=radio")
 	onclose(src, "radio")
 	return
 

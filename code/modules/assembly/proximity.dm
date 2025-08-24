@@ -119,7 +119,7 @@
 		dat += "<BR><A href='?src=\ref[src];scanning=1'>[scanning?"Armed":"Unarmed"]</A> (Movement sensor active when armed!)"
 		dat += "<BR><BR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 		dat += "<BR><BR><A href='?src=\ref[src];close=1'>Close</A>"
-		user << browse(dat, "window=prox")
+		show_browser(user, dat, "window=prox")
 		onclose(user, "prox")
 		return
 
@@ -127,7 +127,7 @@
 	Topic(href, href_list)
 		..()
 		if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
-			usr << browse(null, "window=prox")
+			show_browser(usr, null, "window=prox")
 			onclose(usr, "prox")
 			return
 
@@ -146,7 +146,7 @@
 			time = min(max(round(time), 0), 600)
 
 		if(href_list["close"])
-			usr << browse(null, "window=prox")
+			show_browser(usr, null, "window=prox")
 			return
 
 		if(usr)

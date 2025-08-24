@@ -122,7 +122,7 @@ client/proc/display_news_list()
 	if(src.holder)
 		output += "<a href='?src=\ref[news_topic_handler];client=\ref[src];action=add_news'>Add</a> <a href=http://baystation12.net/forums/index.php/topic,3680.0.html>Guidelines</a><br>"
 
-	usr << browse(output, "window=news;size=600x400")
+	show_browser(usr, output, "window=news;size=600x400")
 
 
 // display all news, even the ones read already
@@ -156,7 +156,7 @@ client/proc/display_all_news_list()
 	F["read_news"] << read_news
 	if(admin)
 		output += "<a href='?src=\ref[news_topic_handler];client=\ref[src];action=add_news'>Add</a> <a href=http://baystation12.net/forums/index.php/topic,3680.0.html>Guidelines</a><br>"
-	usr << browse(output, "window=news;size=600x400")
+	show_browser(usr, output, "window=news;size=600x400")
 
 
 client/proc/add_news()

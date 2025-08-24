@@ -41,7 +41,7 @@ Atmos alert computer
 		else
 			dat += "-- All Systems Nominal<BR>\n"
 		dat += "<BR>\n"
-	user << browse(dat, "window=alerts")
+	show_browser(user, dat, "window=alerts")
 	onclose(user, "alerts")
 
 /obj/machinery/computer/station_alert/proc/getatmosalerts()

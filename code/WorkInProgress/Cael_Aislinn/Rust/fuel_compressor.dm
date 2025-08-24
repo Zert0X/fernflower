@@ -40,7 +40,7 @@ var/const/max_assembly_amount = 300
 	Topic(href, href_list)
 		..()
 		if( href_list["close"] )
-			usr << browse(null, "window=fuelcomp")
+			show_browser(usr, null, "window=fuelcomp")
 			usr.machine = null
 			return
 		//
@@ -73,7 +73,7 @@ var/const/max_assembly_amount = 300
 			/*if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 				if (!istype(user, /mob/living/silicon))
 					user.machine = null
-					user << browse(null, "window=fuelcomp")
+					show_browser(user, null, "window=fuelcomp")
 					return*/
 			var/t = "<B>Reactor Fuel Rod Compressor / Assembler</B><BR>"
 			t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
@@ -84,5 +84,5 @@ var/const/max_assembly_amount = 300
 				t += "	[reagent] rods: [new_assembly_quantities[reagent]] \[<A href='?src=\ref[src];reagent=1'>Modify</A>\]<br>"
 			t += "<hr>"
 			t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-			user << browse(t, "window=fuelcomp;size=500x800")
+			show_browser(user, t, "window=fuelcomp;size=500x800")
 			user.machine = src

@@ -46,7 +46,7 @@
 
 		output += "<BR><a href='byond://?src=\ref[src];pregame_music=1'>Lobby Music</A><BR>"
 
-		src << browse(output,"window=playersetup;size=250x258;can_close=0")
+		show_browser(src, output,"window=playersetup;size=250x258;can_close=0")
 		return
 
 	proc/Playmusic()
@@ -105,7 +105,7 @@
 				ready = 0
 
 		if(href_list["refresh"])
-			src << browse(null, "window=playersetup") //closes the player setup window
+			show_browser(src, null, "window=playersetup") //closes the player setup window
 			new_player_panel_proc()
 
 		if(href_list["observe"])
@@ -368,7 +368,7 @@
 				dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title]</a><br>"
 
 		dat += "</center>"
-		src << browse(dat, "window=latechoices;size=300x640;can_close=1")
+		show_browser(src, dat, "window=latechoices;size=300x640;can_close=1")
 
 
 	proc/create_character()
@@ -411,12 +411,12 @@
 		dat += "<h4>Crew Manifest</h4>"
 		dat += data_core.get_manifest()
 
-		src << browse(dat, "window=manifest;size=300x420;can_close=1")
+		show_browser(src, dat, "window=manifest;size=300x420;can_close=1")
 
 	Move()
 		return 0
 
 
 	proc/close_spawn_windows()
-		src << browse(null, "window=latechoices") //closes late choices window
-		src << browse(null, "window=playersetup") //closes the player setup window
+		show_browser(src, null, "window=latechoices") //closes late choices window
+		show_browser(src, null, "window=playersetup") //closes the player setup window

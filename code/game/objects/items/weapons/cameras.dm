@@ -88,7 +88,7 @@
 	if (scribble)
 		usr << "\blue you see something written on photo's back. "
 	usr << browse_rsc(src.img, "tmp_photo.png")
-	usr << browse("<html><head><title>Photo</title></head>" \
+	show_browser(usr, "<html><head><title>Photo</title></head>" \
 		+ "<body style='overflow:hidden'>" \
 		+ "<div> <img src='tmp_photo.png' width = '180'" \
 		+ "[scribble ? "<div> Writings on the back:<br><i>[scribble]</i>" : ]"\

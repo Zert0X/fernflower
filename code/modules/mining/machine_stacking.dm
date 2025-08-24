@@ -52,7 +52,7 @@
 
 	dat += text("<br>Stacking: [machine.stack_amt]<br><br>")
 
-	user << browse("[dat]", "window=console_stacking_machine")
+	show_browser(user, "[dat]", "window=console_stacking_machine")
 
 /obj/machinery/mineral/stacking_unit_console/Topic(href, href_list)
 	if(..())

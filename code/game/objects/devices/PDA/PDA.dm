@@ -415,7 +415,7 @@
 				dat += cart
 
 	dat += "</body></html>"
-	user << browse(dat, "window=pda;size=400x444;border=1;can_resize=1;can_close=0;can_minimize=0")
+	show_browser(user, dat, "window=pda;size=400x444;border=1;can_resize=1;can_close=0;can_minimize=0")
 	onclose(user, "pda", src)
 
 /obj/item/device/pda/Topic(href, href_list)
@@ -436,7 +436,7 @@
 
 				if("Close")//Self explanatory
 					U.machine = null
-					U << browse(null, "window=pda")
+					show_browser(U, null, "window=pda")
 					return
 				if("Refresh")//Refresh, goes to the end of the proc.
 				if("Return")//Return
@@ -530,7 +530,7 @@
 						if (mode == 1)
 							note = n
 					else
-						U << browse(null, "window=pda")
+						show_browser(U, null, "window=pda")
 						return
 				if("Toggle Messenger")
 					toff = !toff
@@ -553,7 +553,7 @@
 								t = copytext(sanitize(t), 1, 20)
 								ttone = t
 					else
-						U << browse(null, "window=pda")
+						show_browser(U, null, "window=pda")
 						return
 				if("Message")
 					var/t
@@ -668,7 +668,7 @@
 						else
 							U << "PDA not found."
 					else
-						U << browse(null, "window=pda")
+						show_browser(U, null, "window=pda")
 						return
 				if("Send Silence")//Silent virus
 					if(istype(cartridge, /obj/item/weapon/cartridge/mime))
@@ -682,7 +682,7 @@
 						else
 							U << "PDA not found."
 					else
-						U << browse(null, "window=pda")
+						show_browser(U, null, "window=pda")
 						return
 
 
@@ -728,7 +728,7 @@
 									U.show_message("\red An error flashes on your [src].", 1)
 								else if (prob(difficulty * 3))
 									U.show_message("\red Energy feeds back into your [src]!", 1)
-									U << browse(null, "window=pda")
+									show_browser(U, null, "window=pda")
 									explode()
 								else
 									U.show_message("\blue Success!", 1)
@@ -737,7 +737,7 @@
 							U << "PDA not found."
 					else
 						U.machine = null
-						U << browse(null, "window=pda")
+						show_browser(U, null, "window=pda")
 						return
 
 //pAI FUNCTIONS===================================
@@ -758,11 +758,11 @@
 					cartridge.unlock()
 		else//If can't interact.
 			U.machine = null
-			U << browse(null, "window=pda")
+			show_browser(U, null, "window=pda")
 			return
 	else//If not in range or not using the pda.
 		U.machine = null
-		U << browse(null, "window=pda")
+		show_browser(U, null, "window=pda")
 		return
 
 //EXTRA FUNCTIONS===================================
@@ -778,7 +778,7 @@
 		attack_self(U)//It auto-closes the menu prior if the user is not in range and so on.
 	else
 		U.machine = null
-		U << browse(null, "window=pda")
+		show_browser(U, null, "window=pda")
 	return
 
 /obj/item/device/pda/proc/remove_id()

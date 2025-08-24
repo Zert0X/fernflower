@@ -147,7 +147,7 @@
 							 'changelog.css',
 							 'changelog.js'
 							 )
-		src << browse('changelog.html', "window=changes;size=675x650")
+		show_browser(src, 'changelog.html', "window=changes;size=675x650")
 		client.changes = 1
 
 
@@ -248,7 +248,7 @@
 	if(href_list["mach_close"])
 		var/t1 = text("window=[href_list["mach_close"]]")
 		machine = null
-		src << browse(null, t1)
+		show_browser(src, null, t1)
 
 	if(href_list["teleto"])
 		client.jumptoturf(locate(href_list["teleto"]))
@@ -289,7 +289,7 @@
 					if(K.client && K.client.holder && K.key != usr.key && K.key != M.key)
 						K << "<b><font color='blue'>PM: [key_name(usr, K)]->[key_name(M, K)]:</b> \blue [t]</font>"
 	if(href_list["flavor_more"])
-		usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, dd_replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
+		show_browser(usr, text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, dd_replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
 		onclose(usr, "[name]")
 	if(href_list["flavor_change"])
 		update_flavor_text()

@@ -242,7 +242,7 @@ display round(lastgen) and plasmatank amount
 			if (get_dist(src, user) > 1 )
 				if (!istype(user, /mob/living/silicon/ai))
 					user.machine = null
-					user << browse(null, "window=port_gen")
+					show_browser(user, null, "window=port_gen")
 					return
 
 			user.machine = src
@@ -258,7 +258,7 @@ display round(lastgen) and plasmatank amount
 			dat += text("Power output: <A href='?src=\ref[src];action=lower_power'>-</A> [power_gen * power_output] <A href='?src=\ref[src];action=higher_power'>+</A><br>")
 			dat += text("Heat: [heat]<br>")
 			dat += "<br><A href='?src=\ref[src];action=close'>Close</A>"
-			user << browse("[dat]", "window=port_gen")
+			show_browser(user, "[dat]", "window=port_gen")
 
 	Topic(href, href_list)
 		if(..())
@@ -285,7 +285,7 @@ display round(lastgen) and plasmatank amount
 					power_output++
 					src.updateUsrDialog()
 			if (href_list["action"] == "close")
-				usr << browse(null, "window=port_gen")
+				show_browser(usr, null, "window=port_gen")
 				usr.machine = null
 
 /obj/machinery/power/port_gen/pacman/super

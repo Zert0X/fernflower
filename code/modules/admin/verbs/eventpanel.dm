@@ -16,7 +16,7 @@
 	dat += "<A HREF='?src=\ref[src];animuspanel=zombieevent'>Zombie Event</A><br>"
 	dat += "<A HREF='?src=\ref[src];animuspanel=easybuttons'>Buttons</A><br>"
 
-	usr << browse(dat, "window=animuspanel")
+	show_browser(usr, dat, "window=animuspanel")
 
 
 /obj/admins/Topic(href, href_list)
@@ -65,7 +65,7 @@
 							dcount++
 				dat += "Observers: [lcount] online || [dcount] offline<br>"
 
-				usr << browse(dat, "window=animuspanel")
+				show_browser(usr, dat, "window=animuspanel")
 				return
 
 
@@ -82,7 +82,7 @@
 				dat += "<A HREF='?src=\ref[src];animuspanel=zombieevent_createzombie'>Create zombie</A><br>"
 				dat += "<A HREF='?src=\ref[src];animuspanel=zombieevent_createzombierand'>Create zombie (random key)</A><br>"
 
-				usr << browse(dat, "window=animuspanel")
+				show_browser(usr, dat, "window=animuspanel")
 				return
 			if("zombieevent_start")
 				dat += "<b>Zombie Event</b><br>"
@@ -101,7 +101,7 @@
 					//message_admins("\blue [key_name_admin(usr)] starts Zombie Event ([I] infected).", 1)
 					//log_admin("[key_name(usr)] starts Zombie Event [I]")
 
-				usr << browse(dat, "window=animuspanel")
+				show_browser(usr, dat, "window=animuspanel")
 				return
 			if("zombieevent_pmtozombie")
 				var/message = sanitize(input("Your message","Message to all zombies"))
@@ -176,7 +176,7 @@
 				dat += "<A HREF='?src=\ref[src];animuspanel=easybuttons_createhumanrand'>Create human (random key)</A><br>"
 				dat += "<A HREF='?src=\ref[src];animuspanel=easybuttons_delghosts'>Delete all ghosts without key</A><br>"
 
-				usr << browse(dat, "window=animuspanel")
+				show_browser(usr, dat, "window=animuspanel")
 				return
 			if("easybuttons_createhuman")
 				var/tname = input("Input name:","Name")
