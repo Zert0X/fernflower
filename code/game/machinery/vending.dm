@@ -395,15 +395,19 @@ To combat this, I changed the window name. -- Doohl
 	updateWindow(user)
 	winshow(user, "vendingwindow_n", 1)
 	user.skincmds["vending"] = src
-
+	
+	var/need_to_open_browser = FALSE
 	var/dat = "<B>[src.name]</B>"
-
-	if(coin)
-		dat += "<br>There is a <a href='?src=\ref[src];remove_coin=1'>[coin.name]</a> in the slot!"
-	else
-		dat += "<br>The coin slot is empty."
+	if(!(product_coin == "" || !product_coin))
+		if(coin)
+			dat += "<br>There is a <a href='?src=\ref[src];remove_coin=1'>[coin.name]</a> in the slot!"
+		else
+			dat += "<br>The coin slot is empty."
+		
+		need_to_open_browser = TRUE
 
 	if(panel_open)
+		need_to_open_browser = TRUE
 		var/list/vendwires = list(
 			"Violet" = 1,
 			"Orange" = 2,
@@ -430,7 +434,8 @@ To combat this, I changed the window name. -- Doohl
 		if(product_slogans != "")
 			dat += "The speaker switch is [src.shut_up ? "off" : "on"]. <a href='?src=\ref[src];togglevoice=[1]'>Toggle</a>"
 
-	show_browser(user, dat, "")
+	if(need_to_open_browser)
+		show_browser(user, dat, "window=vending")
 	onclose(user, "")
 
 /obj/machinery/vending/Topic(href, href_list)

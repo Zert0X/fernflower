@@ -811,4 +811,4 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 		view_scrap(usr)
 
 	proc/view_scrap(var/viewer)
-		show_browser(viewer, data, "")
+		show_browser(viewer, data, "window=paper")

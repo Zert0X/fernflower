@@ -30,6 +30,7 @@
 		return 0
 	if(!src.operating) //in case of emag
 		src.operating = 1
+	playsound(src.loc, 'shutters_open.ogg', 50, 1)
 	flick("shutterc0", src)
 	src.icon_state = "shutter0"
 	sleep(10)
@@ -47,6 +48,7 @@
 /obj/machinery/door/poddoor/shutters/close()
 	if (src.operating)
 		return
+	playsound(src.loc, 'shutters_close.ogg', 50, 1)
 	src.operating = 1
 	flick("shutterc1", src)
 	src.icon_state = "shutter1"

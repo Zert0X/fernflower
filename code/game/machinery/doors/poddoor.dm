@@ -4,6 +4,8 @@
 	icon = 'rapid_pdoor.dmi'
 	icon_state = "pdoor1"
 	var/id = ""
+	var/sound_open = 'blastdoor_open.ogg'
+	var/sound_close = 'blastdoor_close.ogg'
 
 /obj/machinery/door/poddoor/Bumped(atom/AM)
 	if(!density)
@@ -34,6 +36,7 @@
 		return 0
 	if(!src.operating) //in case of emag
 		src.operating = 1
+	playsound(src.loc, src.sound_open, 50, 1)
 	flick("pdoorc0", src)
 	src.icon_state = "pdoor0"
 	sleep(10)
@@ -51,6 +54,7 @@
 /obj/machinery/door/poddoor/close()
 	if (src.operating)
 		return
+	playsound(src.loc, src.sound_close, 50, 1)
 	src.operating = 1
 	flick("pdoorc1", src)
 	src.icon_state = "pdoor1"
@@ -70,6 +74,7 @@
 		return 0
 	if(!src.operating) //in case of emag
 		src.operating = 1
+	playsound(src.loc, src.sound_open, 50, 1)
 	flick("pdoorc0", src)
 	src.icon_state = "pdoor0"
 	sleep(10)
@@ -93,6 +98,7 @@
 /obj/machinery/door/poddoor/two_tile_hor/close()
 	if (src.operating)
 		return
+	playsound(src.loc, src.sound_close, 50, 1)
 	src.operating = 1
 	flick("pdoorc1", src)
 	src.icon_state = "pdoor1"
@@ -118,6 +124,7 @@
 		return 0
 	if(!src.operating) //in case of emag
 		src.operating = 1
+	playsound(src.loc, src.sound_open, 50, 1)
 	flick("pdoorc0", src)
 	src.icon_state = "pdoor0"
 	sleep(10)
@@ -145,6 +152,7 @@
 /obj/machinery/door/poddoor/four_tile_hor/close()
 	if (src.operating)
 		return
+	playsound(src.loc, src.sound_close, 50, 1)
 	src.operating = 1
 	flick("pdoorc1", src)
 	src.icon_state = "pdoor1"
@@ -174,6 +182,7 @@
 		return 0
 	if(!src.operating) //in case of emag
 		src.operating = 1
+	playsound(src.loc, src.sound_open, 50, 1)
 	flick("pdoorc0", src)
 	src.icon_state = "pdoor0"
 	sleep(10)
@@ -197,6 +206,7 @@
 /obj/machinery/door/poddoor/two_tile_ver/close()
 	if (src.operating)
 		return
+	playsound(src.loc, src.sound_close, 50, 1)
 	src.operating = 1
 	flick("pdoorc1", src)
 	src.icon_state = "pdoor1"
@@ -222,6 +232,7 @@
 		return 0
 	if(!src.operating) //in case of emag
 		src.operating = 1
+	playsound(src.loc, src.sound_open, 50, 1)
 	flick("pdoorc0", src)
 	src.icon_state = "pdoor0"
 	sleep(10)
@@ -249,6 +260,7 @@
 /obj/machinery/door/poddoor/four_tile_ver/close()
 	if (src.operating)
 		return
+	playsound(src.loc, src.sound_close, 50, 1)
 	src.operating = 1
 	flick("pdoorc1", src)
 	src.icon_state = "pdoor1"
