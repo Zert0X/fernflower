@@ -1878,3 +1878,5 @@ proc/get_mob_with_client_list()
 			return EAST
 		if(NORTHWEST)
 			return SOUTHEAST
+
+#define show_browser(target, content, title)  to_target(target, browse(istext(content) ? "<!DOCTYPE html>[content]" : content, title))
